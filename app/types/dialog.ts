@@ -1,5 +1,11 @@
+export enum DialogId {
+  Intro = 'intro',
+  Banners = 'banners',
+  End = 'end'
+}
+
 export type DialogRecord = {
-  id: string
+  id: DialogId
   dialog: string
   actionLabel?: string
 }

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+/* Imports */
+import { DialogId } from '~/types'
+
 /* Constants */
 const images = [
   'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/e198f740-163a-47af-a63f-10145fb575e0.webp',
@@ -37,7 +40,10 @@ function next() {
     <!-- Carousel -->
     <div class="relative flex-1 h-125 overflow-hidden flex items-center justify-center">
       <!-- Dialog -->
-      <DialogComponent id="banners" class="absolute top-1/2 -translate-y-1/2 left-5 z-50" />
+      <DialogComponent
+        :id="DialogId.Banners"
+        class="absolute top-1/2 -translate-y-1/2 left-5 z-50"
+      />
 
       <!-- Sliders -->
       <div

@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+/* Imports */
+import { DialogId } from '~/types'
+</script>
 
 <template>
   <div class="relative">
@@ -9,7 +12,7 @@
     />
 
     <!-- Dialogs -->
-    <DialogComponent id="intro" class="top-0 translate-y-1/2 left-5" />
-    <DialogComponent id="end" class="top-0 translate-y-1/2 left-5" />
+    <DialogComponent :id="DialogId.Intro" class="top-0 translate-y-1/2 left-5" />
+    <DialogComponent :id="DialogId.End" class="top-0 translate-y-1/2 left-5" />
   </div>
 </template>

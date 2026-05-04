@@ -1,6 +1,9 @@
 <script setup lang="ts">
+/* Imports */
+import type { DialogId } from '~/types'
+
 /* Props */
-const props = defineProps<{ id: string }>()
+const props = defineProps<{ id: DialogId }>()
 
 /* Constants */
 const config = useAppConfig()
