@@ -45,6 +45,11 @@ export default defineAppConfig({
         actionLabel: 'Start the Tour'
       },
       {
+        id: 'banners',
+        dialog:
+          'Here are some animated banners I created! They are very loooooong, which is perfect for Discord, Twitch or Youtube! :O'
+      },
+      {
         id: 'end',
         dialog: "So that's the end of the line, I hope you had fun during your stay! =w=",
         actionLabel: 'Finish'
