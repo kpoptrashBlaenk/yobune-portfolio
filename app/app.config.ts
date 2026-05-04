@@ -9,6 +9,11 @@ export default defineAppConfig({
     }
   },
 
+  /* Titles */
+  titles: {
+    animatedBanners: 'Animated Banners'
+  },
+
   /* Header */
   header: {
     navigationMenuItems: [
