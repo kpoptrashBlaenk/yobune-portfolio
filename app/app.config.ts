@@ -1,5 +1,5 @@
 import type { NavigationMenuItem } from '@nuxt/ui'
-import type { DialogConfig } from './types'
+import { DialogId, type DialogConfig } from './types'
 
 export default defineAppConfig({
   ui: {
@@ -7,6 +7,11 @@ export default defineAppConfig({
       primary: 'green',
       neutral: 'slate'
     }
+  },
+
+  /* Titles */
+  titles: {
+    animatedBanners: 'Animated Banners'
   },
 
   /* Header */
@@ -39,13 +44,18 @@ export default defineAppConfig({
       'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/avatars/c994765a-609b-4db2-ad2a-fb476a540298.webp',
     scenes: [
       {
-        id: 'intro',
+        id: DialogId.Intro,
         dialog:
           "Welcome to the world of YobuneArt! I'm Pinky, your tour guide! Would you like me to show you around? :3",
         actionLabel: 'Start the Tour'
       },
       {
-        id: 'end',
+        id: DialogId.Banners,
+        dialog:
+          'Here are some animated banners I created! They are very loooooong, which is perfect for Discord, Twitch or Youtube! :O'
+      },
+      {
+        id: DialogId.End,
         dialog: "So that's the end of the line, I hope you had fun during your stay! =w=",
         actionLabel: 'Finish'
       }
