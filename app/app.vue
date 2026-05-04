@@ -10,6 +10,10 @@ useHead({
 
 <template>
   <UApp>
-    <UMain />
+    <UMain>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </UMain>
   </UApp>
 </template>
