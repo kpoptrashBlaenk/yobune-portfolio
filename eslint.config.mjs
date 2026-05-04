@@ -7,6 +7,7 @@ export default withNuxt({
     'vue/max-attributes-per-line': 'off',
     'vue/html-self-closing': 'off',
     'vue/operator-linebreak': 'off',
-    '@stylistic/quotes': 'off'
+    '@stylistic/quotes': 'off',
+    '@stylistic/arrow-parens': 'off'
   }
 })

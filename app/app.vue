@@ -11,6 +11,7 @@ useHead({
 /* Constants */
 const dialog = useDialogStore()
 
+/* Lifecycle Hooks */
 onNuxtReady(() => {
   dialog.next()
 })

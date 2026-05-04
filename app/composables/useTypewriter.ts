@@ -6,33 +6,34 @@
 export function useTypewriter(text: Ref<string>) {
   const config = useAppConfig()
   const output = ref('')
+
   let i = 0
   let interval: ReturnType<typeof setInterval> | null = null
 
-  const start = () => {
-    if (!import.meta.client) return
+  function stop() {
+    if (interval) {
+      clearInterval(interval)
+      interval = null
+    }
+  }
 
+  function start(onDone?: () => void) {
+    if (!import.meta.client) return
+    stop()
     output.value = ''
     i = 0
-
-    if (interval) clearInterval(interval)
 
     interval = setInterval(() => {
       output.value += text.value[i]
       i++
-
       if (i >= text.value.length) {
-        if (interval) clearInterval(interval)
-        interval = null
+        stop()
+        onDone?.()
       }
     }, config.dialog.speed)
   }
 
-  watch(text, start, { immediate: true })
+  onBeforeUnmount(stop)
 
-  onBeforeUnmount(() => {
-    if (interval) clearInterval(interval)
-  })
-
-  return { output, start }
+  return { output, start, stop }
 }

@@ -41,12 +41,12 @@ export default defineAppConfig({
       {
         id: 'intro',
         dialog:
-          'Welcome to my page bla bla bla. I need some placeholder text, so please let this just look nice. Thank you.',
+          "Welcome to the world of YobuneArt! I'm Pinky, your tour guide! Would you like me to show you around? :3",
         actionLabel: 'Start the Tour'
       },
       {
         id: 'end',
-        dialog: "That's the end of the tour i guess so yeah.",
+        dialog: "So that's the end of the line, I hope you had fun during your stay! =w=",
         actionLabel: 'Finish'
       }
     ]

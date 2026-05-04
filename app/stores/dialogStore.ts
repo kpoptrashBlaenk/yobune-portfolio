@@ -1,54 +1,55 @@
+import type { DialogRecord } from '~/types'
+
 export const useDialogStore = defineStore('dialog', () => {
   const config = useAppConfig()
+  const scenes = config.dialog.scenes
 
   const index = ref(-1)
-  const state = ref<'idle' | 'entering' | 'exiting'>('idle')
+  const isTyping = ref(false)
 
-  const currentScene = computed(() => config.dialog.scenes[index.value])
-  const isLast = computed(() => index.value >= config.dialog.scenes.length - 1)
+  const currentScene = computed<DialogRecord | null>(() => scenes[index.value] ?? null)
+  const isStarted = computed<boolean>(() => index.value >= 0)
+  const isLast = computed<boolean>(() => index.value >= scenes.length - 1)
 
-  function next() {
-    // set to exit
-    state.value = 'exiting'
+  async function next() {
+    if (isTyping.value) return
 
-    // on last, stop
-    if (isLast.value) return
+    if (isLast.value) {
+      index.value = -1
+      return
+    }
 
-    // enter next scene
+    // set next scene
     index.value++
-    state.value = 'entering'
     const scene = currentScene.value
+    if (!scene) return
 
-    // delay before moving on
-    setTimeout(() => {
-      // scroll to scene
-      if (scene) {
-        document.getElementById(scene.id)?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        })
-      }
-
-      // set to idle on typewriting finish
-      setTimeout(
-        () => {
-          state.value = 'idle'
-        },
-        (currentScene.value?.dialog.length || 0) * config.dialog.speed - 300
-      )
-    }, 300)
+    // scroll to card
+    await nextTick()
+    document.getElementById(scene.id)?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    })
   }
 
-  function find(id: string) {
-    return config.dialog.scenes.find(scene => scene.id === id)
+  /** Called by the component when its typewriter finishes */
+  function onTypingDone() {
+    isTyping.value = false
+  }
+
+  /** Called by the component when its typewriter starts */
+  function onTypingStart() {
+    isTyping.value = true
   }
 
   return {
     index,
-    state,
+    isTyping,
     currentScene,
+    isStarted,
     isLast,
     next,
-    find
+    onTypingDone,
+    onTypingStart
   }
 })

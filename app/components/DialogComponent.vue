@@ -1,50 +1,43 @@
 <script setup lang="ts">
-/* Imports */
-
 /* Props */
-const props = defineProps<{
-  id: string
-}>()
+const props = defineProps<{ id: string }>()
 
 /* Constants */
 const config = useAppConfig()
 const dialog = useDialogStore()
-const scene = dialog.find(props.id)
 
-/* Refs */
-const text = computed(() => scene?.dialog || '')
-const typewriter = useTypewriter(text)
-const isActive = computed(() => dialog.currentScene?.id === props.id)
+/* Variables */
+const scene = config.dialog.scenes.find((scene) => scene.id === props.id)
+const text = ref<string>(scene?.dialog ?? '')
+const { output, start } = useTypewriter(text)
+const isActive = computed<boolean>(() => dialog.currentScene?.id === props.id)
 
 /* Watches */
-watch(
-  isActive,
-  active => {
-    if (active) typewriter.start()
-  },
-  { immediate: true }
-)
+watch(isActive, (active) => {
+  if (!active) return
+  dialog.onTypingStart()
+  start(() => dialog.onTypingDone())
+})
 </script>
 
 <template>
-  <Transition :id="scene?.id" name="fade">
+  <!-- Transition -->
+  <Transition name="fade">
     <!-- Card -->
-    <UCard v-if="scene && dialog.currentScene?.id === scene?.id" class="absolute w-1/3">
-      <!-- Content -->
-      <div class="flex gap-4 items-center h-24">
+    <UCard v-if="scene && isActive" :id="scene.id" class="absolute w-1/3">
+      <div class="flex items-center gap-4 h-24">
         <!-- Image -->
         <img :src="config.dialog.image" class="w-16 h-16 rounded-xl" />
-
         <!-- Text -->
-        <p>{{ typewriter.output }}</p>
+        <p>{{ output }}</p>
       </div>
 
       <!-- Footer -->
       <template #footer>
         <div class="flex justify-end h-8">
           <!-- Action Button -->
-          <UButton v-if="dialog.state === 'idle'" @click="dialog.next">
-            {{ scene?.actionLabel || config.dialog.defaultActionLabel }}
+          <UButton v-if="!dialog.isTyping" @click="dialog.next">
+            {{ scene.actionLabel ?? config.dialog.defaultActionLabel }}
           </UButton>
         </div>
       </template>
@@ -52,12 +45,11 @@ watch(
   </Transition>
 </template>
 
-<style lang="css" scoped>
+<style scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
