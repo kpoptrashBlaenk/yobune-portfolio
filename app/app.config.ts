@@ -190,7 +190,23 @@ export default defineAppConfig({
     },
     process: {
       title: 'Work Process',
-      items: [{ title: 'example', image: 'string' }]
+      items: [
+        {
+          title: 'First Step',
+          image:
+            'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/HM8PHRKAHQCR/70901a93-daef-44d5-9aec-c3488e6747c1.webp'
+        },
+        {
+          title: 'Second Step',
+          image:
+            'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/YP7DP5PVVUU2/9db90ad1-7f97-432a-a5de-d2cc9e88d5bb.webp'
+        },
+        {
+          title: 'Third Step',
+          image:
+            'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/KTQ12A7KRW78/1e96742e-5475-40c0-8f1b-3fab54e6202b.webp'
+        }
+      ]
     }
   } as WorkConfig
 })
