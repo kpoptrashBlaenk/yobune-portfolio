@@ -11,7 +11,8 @@ export default defineAppConfig({
 
   /* Titles */
   titles: {
-    animatedBanners: 'Animated Banners'
+    animatedBanners: 'Animated Banners',
+    ohterAnimations: 'Other Animations'
   },
 
   /* Header */
@@ -53,6 +54,10 @@ export default defineAppConfig({
         id: DialogId.Banners,
         dialog:
           'Here are some animated banners I created! They are very loooooong, which is perfect for Discord, Twitch or Youtube! :O'
+      },
+      {
+        id: DialogId.Animations,
+        dialog: 'I also do some other animations. Anything your heart desires! c:'
       },
       {
         id: DialogId.End,

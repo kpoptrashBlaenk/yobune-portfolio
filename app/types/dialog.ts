@@ -1,6 +1,7 @@
 export enum DialogId {
   Intro = 'intro',
   Banners = 'banners',
+  Animations = 'animations',
   End = 'end'
 }
 

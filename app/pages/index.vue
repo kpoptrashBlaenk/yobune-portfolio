@@ -10,5 +10,9 @@ const config = useAppConfig()
     <TitleComponent :title="config.titles.animatedBanners" />
 
     <BannerGallery />
+
+    <TitleComponent :title="config.titles.ohterAnimations" />
+
+    <AnimationMasonry />
   </div>
 </template>

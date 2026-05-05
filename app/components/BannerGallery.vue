@@ -62,7 +62,7 @@ function next() {
       >
         <img
           :src="img"
-          class="w-full h-75 object-cover rounded-2xl transition-all duration-500"
+          class="w-full h-75 object-cover rounded-xl transition-all duration-500"
           :class="getOffset(i) === 0 ? 'h-100' : ''"
         />
       </div>
