@@ -16,5 +16,7 @@ const config = useAppConfig()
     <AnimationMasonry />
 
     <TitleComponent :title="config.titles.characterSheets" />
+
+    <CharacterSheets />
   </div>
 </template>
