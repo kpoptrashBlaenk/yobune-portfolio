@@ -68,6 +68,11 @@ export default defineAppConfig({
           "I also do spicy stuff! It's blurred because I am family friendly of course. But you can turn on NSFW above... pervert. x.x"
       },
       {
+        id: DialogId.Work,
+        dialog:
+          "If you're interested, you can also see how exactly I work and treat my drawings! òwó"
+      },
+      {
         id: DialogId.End,
         dialog: "So that's the end of the line, I hope you had fun during your stay! =w=",
         actionLabel: 'Finish'

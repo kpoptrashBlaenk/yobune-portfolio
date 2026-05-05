@@ -1,10 +1,16 @@
 <script setup lang="ts">
+/* Imports */
+import { DialogId } from '~/types'
+
 /* Constants */
 const config = useAppConfig()
 </script>
 
 <template>
-  <div class="grid grid-cols-2 gap-5">
+  <div class="relative grid grid-cols-2 gap-5">
+    <!-- Dialog -->
+    <DialogComponent :id="DialogId.Work" />
+
     <!-- Timelapse -->
     <div>
       <TitleComponent :title="config.work.timelapse.title" secondary />
