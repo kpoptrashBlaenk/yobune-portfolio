@@ -56,6 +56,10 @@ export default defineAppConfig({
           'Here are some animated banners I created! They are very loooooong, which is perfect for Discord, Twitch or Youtube! :O'
       },
       {
+        id: DialogId.Animations,
+        dialog: 'I also do some other animations. Anything your heart desires! c:'
+      },
+      {
         id: DialogId.End,
         dialog: "So that's the end of the line, I hope you had fun during your stay! =w=",
         actionLabel: 'Finish'

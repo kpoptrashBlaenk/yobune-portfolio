@@ -24,7 +24,7 @@ const animations = [
 <template>
   <div class="relative">
     <!-- Dialog -->
-    <DialogComponent :id="DialogId.Animations" />
+    <DialogComponent :id="DialogId.Animations" class="top-10 left-10" />
 
     <!-- Masonry Grid -->
     <div class="columns-3 gap-2">
