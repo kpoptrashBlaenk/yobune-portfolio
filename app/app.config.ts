@@ -21,7 +21,8 @@ export default defineAppConfig({
   titles: {
     animatedBanners: 'Animated Banners',
     ohterAnimations: 'Other Animations',
-    characterSheets: 'Character Sheets'
+    characterSheets: 'Character Sheets',
+    otherImages: 'Other Images'
   },
 
   /* Header */

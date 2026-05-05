@@ -18,5 +18,7 @@ const config = useAppConfig()
     <TitleComponent :title="config.titles.characterSheets" />
 
     <CharacterSheets />
+
+    <TitleComponent :title="config.titles.otherImages" />
   </div>
 </template>
