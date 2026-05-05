@@ -1,4 +1,7 @@
 <script setup lang="ts">
+/* Imports */
+import { DialogId } from '~/types'
+
 /* Constants */
 const characterSheets = [
   'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/JO7E9JL9YO23/4db35e1b-6594-42c1-bd08-d4d1542b2f54.webp',
@@ -21,7 +24,10 @@ function select(index: number) {
 </script>
 
 <template>
-  <div class="flex gap-5 items-center h-[46vw] overflow-hidden">
+  <div class="relative flex gap-5 items-center h-[46vw]">
+    <!-- Dialog -->
+    <DialogComponent :id="DialogId.Characters" class="top-0 left-4 z-50" />
+
     <!-- Left -->
     <div class="w-1/2 flex items-center justify-center h-full">
       <!-- Selected Sheet -->

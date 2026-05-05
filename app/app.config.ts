@@ -61,6 +61,11 @@ export default defineAppConfig({
         dialog: 'I also do some other animations. Anything your heart desires! c:'
       },
       {
+        id: DialogId.Characters,
+        dialog:
+          'I also do character sheets! I am always ready if you need to create a creative visualization of your original character! >:3'
+      },
+      {
         id: DialogId.End,
         dialog: "So that's the end of the line, I hope you had fun during your stay! =w=",
         actionLabel: 'Finish'
