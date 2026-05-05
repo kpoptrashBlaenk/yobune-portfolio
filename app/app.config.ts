@@ -25,7 +25,8 @@ export default defineAppConfig({
     ohterAnimations: 'Other Animations',
     characterSheets: 'Character Sheets',
     otherImages: 'Other Images',
-    nsfwGallery: 'NSFW Section'
+    nsfwGallery: 'NSFW Section',
+    work: 'About my work'
   },
 
   /* Dialog */

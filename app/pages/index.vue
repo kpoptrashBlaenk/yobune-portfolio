@@ -26,5 +26,7 @@ const config = useAppConfig()
     <TitleComponent :title="config.titles.nsfwGallery" />
 
     <NsfwGallery />
+
+    <TitleComponent :title="config.titles.work" />
   </div>
 </template>
