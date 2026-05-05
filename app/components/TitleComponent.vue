@@ -2,11 +2,14 @@
 /* Props */
 defineProps<{
   title: string
+  secondary?: boolean
 }>()
 </script>
 
 <template>
-  <div class="text-4xl font-bold mt-20">{{ title }}</div>
+  <div class="font-bold" :class="secondary ? 'text-xl mb-2 ml-2' : 'text-4xl mt-20'">
+    {{ title }}
+  </div>
 
-  <USeparator class="my-5" />
+  <USeparator v-if="!secondary" class="my-5" />
 </template>

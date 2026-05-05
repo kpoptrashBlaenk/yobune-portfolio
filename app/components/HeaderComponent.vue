@@ -27,7 +27,7 @@ const items: NavigationMenuItem[] = config.header.navigationMenuItems
       </UButton>
 
       <!-- NSFW Switch -->
-      <USwitch v-model="settings.nsfw" :label="config.header.nsfw.label" />
+      <USwitch v-model="settings.nsfw" :label="config.nsfw.label" />
     </template>
   </UHeader>
 </template>
