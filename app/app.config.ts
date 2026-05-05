@@ -180,7 +180,8 @@ export default defineAppConfig({
   work: {
     timelapse: {
       title: 'Timelapse',
-      video: 'string'
+      video:
+        'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/RNMWEFXTHDKO/26d50697-3a68-4dc3-b7e0-c2530274d7d5.webm'
     },
     quality: {
       title: 'Low vs High Quality',

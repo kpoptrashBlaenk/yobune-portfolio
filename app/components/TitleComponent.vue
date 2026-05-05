@@ -7,7 +7,9 @@ defineProps<{
 </script>
 
 <template>
-  <div class="font-bold mt-20" :class="secondary ? 'text-xl' : 'text-4xl'">{{ title }}</div>
+  <div class="font-bold" :class="secondary ? 'text-xl mb-2 ml-2' : 'text-4xl mt-20'">
+    {{ title }}
+  </div>
 
-  <USeparator class="my-5" />
+  <USeparator v-if="!secondary" class="my-5" />
 </template>

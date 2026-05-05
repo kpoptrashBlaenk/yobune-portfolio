@@ -28,5 +28,7 @@ const config = useAppConfig()
     <NsfwGallery />
 
     <TitleComponent :title="config.titles.work" />
+
+    <AboutWork />
   </div>
 </template>
