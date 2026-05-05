@@ -22,5 +22,9 @@ const config = useAppConfig()
     <TitleComponent :title="config.titles.otherImages" />
 
     <ImageMasonry />
+
+    <TitleComponent :title="config.titles.nsfwGallery" />
+
+    <NsfwGallery />
   </div>
 </template>
