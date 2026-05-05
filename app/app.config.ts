@@ -8,6 +8,7 @@ import {
   type HeaderConfig,
   type HeroConfig
 } from './types'
+import type { ImagesConfig } from './types/images'
 
 export default defineAppConfig({
   ui: {
@@ -24,34 +25,6 @@ export default defineAppConfig({
     characterSheets: 'Character Sheets',
     otherImages: 'Other Images'
   },
-
-  /* Header */
-  header: {
-    navigationMenuItems: [
-      {
-        label: 'VGen',
-        to: 'https://vgen.co/Yobune',
-        target: '_blank'
-      }
-    ] as NavigationMenuItem[],
-
-    cursor: {
-      default: true,
-      trueLabel: 'Cursor: Fancy',
-      falseLabel: 'Cursor: Boring'
-    },
-
-    nsfw: {
-      default: false,
-      label: 'NSFW Mode'
-    }
-  } as HeaderConfig,
-
-  /* Hero */
-  hero: {
-    image:
-      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/e198f740-163a-47af-a63f-10145fb575e0.webp'
-  } as HeroConfig,
 
   /* Dialog */
   dialog: {
@@ -81,12 +54,45 @@ export default defineAppConfig({
           'I also do character sheets! I am always ready if you need to create a creative visualization of your original character! >:3'
       },
       {
+        id: DialogId.Images,
+        dialog:
+          'There is a lot more, but here are some of my favorite images I created! :3'
+      },
+      {
         id: DialogId.End,
         dialog: "So that's the end of the line, I hope you had fun during your stay! =w=",
         actionLabel: 'Finish'
       }
     ]
   } as DialogConfig,
+
+  /* Header */
+  header: {
+    navigationMenuItems: [
+      {
+        label: 'VGen',
+        to: 'https://vgen.co/Yobune',
+        target: '_blank'
+      }
+    ] as NavigationMenuItem[],
+
+    cursor: {
+      default: true,
+      trueLabel: 'Cursor: Fancy',
+      falseLabel: 'Cursor: Boring'
+    },
+
+    nsfw: {
+      default: false,
+      label: 'NSFW Mode'
+    }
+  } as HeaderConfig,
+
+  /* Hero */
+  hero: {
+    image:
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/e198f740-163a-47af-a63f-10145fb575e0.webp'
+  } as HeroConfig,
 
   /* Banner Animations */
   banners: {
@@ -130,5 +136,21 @@ export default defineAppConfig({
       'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/17JC51GUI32/68080640-a85b-4ed7-9164-5c61612a1de6.webp',
       'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/29GENWPUDA1U/9fe02eea-2eaf-4241-b182-750656e66461.webp'
     ]
-  } as CharacterSheetsConfig
+  } as CharacterSheetsConfig,
+
+  /* Images */
+  images: {
+    images: [
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/HM8PHRKAHQCR/70901a93-daef-44d5-9aec-c3488e6747c1.webp',
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/YP7DP5PVVUU2/9db90ad1-7f97-432a-a5de-d2cc9e88d5bb.webp',
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/KTQ12A7KRW78/1e96742e-5475-40c0-8f1b-3fab54e6202b.webp',
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/4LOCI5ORW0AK/4b680754-8cce-4919-937b-2fc9a5e05117.webp',
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/1Y3NR2DFSKQF/ba54ca5c-25c8-4208-82f6-00c734d67ab9.webp',
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/portfolio/e4fd6710-f263-43a7-82a2-599abf8feaae.webp',
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/C29UE92RJKCI/3019a6af-2b76-4546-b0c2-84b3ee4a90a8.webp',
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/QXVWR8B4DQ29/6d1b247a-f91b-4718-91d7-5035f6f9724a.webp',
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/portfolio/100e6662-bd27-4a11-9c15-5c48a147d008.webp',
+      'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/portfolio/f2c5b316-344f-40ed-a575-0925d5b097ce.webp'
+    ]
+  } as ImagesConfig
 })

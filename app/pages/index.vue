@@ -20,5 +20,7 @@ const config = useAppConfig()
     <CharacterSheets />
 
     <TitleComponent :title="config.titles.otherImages" />
+
+    <ImageMasonry />
   </div>
 </template>
