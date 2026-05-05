@@ -4,7 +4,8 @@ export enum DialogId {
   Characters = 'characters',
   End = 'end',
   Images = 'images',
-  Intro = 'intro'
+  Intro = 'intro',
+  Nsfw = 'nsfw'
 }
 
 export type DialogRecord = {

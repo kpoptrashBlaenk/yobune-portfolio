@@ -25,7 +25,7 @@ export default defineAppConfig({
     ohterAnimations: 'Other Animations',
     characterSheets: 'Character Sheets',
     otherImages: 'Other Images',
-    nsfwSection: 'NSFW Section'
+    nsfwGallery: 'NSFW Section'
   },
 
   /* Dialog */
@@ -48,7 +48,7 @@ export default defineAppConfig({
       },
       {
         id: DialogId.Animations,
-        dialog: 'I also do some other animations. Anything your heart desires! c:'
+        dialog: 'Of course I do other types of animations as well. Anything your heart desires! c:'
       },
       {
         id: DialogId.Characters,
@@ -58,6 +58,11 @@ export default defineAppConfig({
       {
         id: DialogId.Images,
         dialog: 'There is a lot more, but here are some of my favorite images I created! :3'
+      },
+      {
+        id: DialogId.Nsfw,
+        dialog:
+          "I also do spicy stuff! It's blurred because I am family friendly of course. But you can turn on NSFW above... pervert. x.x"
       },
       {
         id: DialogId.End,
