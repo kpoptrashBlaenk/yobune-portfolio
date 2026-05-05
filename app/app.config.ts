@@ -6,9 +6,11 @@ import {
   type CharacterSheetsConfig,
   type DialogConfig,
   type HeaderConfig,
-  type HeroConfig
+  type HeroConfig,
+  type ImagesConfig,
+  type NsfwConfig,
+  type WorkConfig
 } from './types'
-import type { ImagesConfig } from './types/images'
 
 export default defineAppConfig({
   ui: {
@@ -87,11 +89,6 @@ export default defineAppConfig({
       default: true,
       trueLabel: 'Cursor: Fancy',
       falseLabel: 'Cursor: Boring'
-    },
-
-    nsfw: {
-      default: false,
-      label: 'NSFW Mode'
     }
   } as HeaderConfig,
 
@@ -163,6 +160,8 @@ export default defineAppConfig({
 
   /* Nsfw */
   nsfw: {
+    default: false,
+    label: 'NSFW Mode',
     images: [
       'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/HM8PHRKAHQCR/70901a93-daef-44d5-9aec-c3488e6747c1.webp',
       'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/YP7DP5PVVUU2/9db90ad1-7f97-432a-a5de-d2cc9e88d5bb.webp',
@@ -175,5 +174,22 @@ export default defineAppConfig({
       'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/portfolio/100e6662-bd27-4a11-9c15-5c48a147d008.webp',
       'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/portfolio/f2c5b316-344f-40ed-a575-0925d5b097ce.webp'
     ]
-  } as ImagesConfig
+  } as NsfwConfig,
+
+  /* About Work */
+  work: {
+    timelapse: {
+      title: 'Timelapse',
+      video: 'string'
+    },
+    quality: {
+      title: 'Low vs High Quality',
+      low: 'string',
+      high: 'string'
+    },
+    process: {
+      title: 'Work Process',
+      items: [{ title: 'example', image: 'string' }]
+    }
+  } as WorkConfig
 })

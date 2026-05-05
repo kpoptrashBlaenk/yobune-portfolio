@@ -6,13 +6,7 @@ export type CursorConfig = {
   falseLabel: string
 }
 
-export type NsfwConfig = {
-  default: boolean
-  label: string
-}
-
 export type HeaderConfig = {
   navigationMenuItems: NavigationMenuItem[]
   cursor: CursorConfig
-  nsfw: NsfwConfig
 }
