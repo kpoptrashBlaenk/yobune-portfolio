@@ -4,16 +4,14 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 
 /* Constants */
 const config = useAppConfig()
+const settings = useSettingsStore()
 const items: NavigationMenuItem[] = config.header.navigationMenuItems
-
-/* Refs */
-const fancyCursor = ref<boolean>(config.header.cursor.default)
 </script>
 
 <template>
   <UHeader>
     <!-- Title -->
-    <template #title> YobuneArt </template>
+    <template #title> {{ config.titles.main }} </template>
 
     <!-- Links -->
     <UNavigationMenu :items />
@@ -24,12 +22,12 @@ const fancyCursor = ref<boolean>(config.header.cursor.default)
       <UColorModeButton />
 
       <!-- Cursor Mode -->
-      <UButton variant="ghost" size="md" color="neutral" @click="fancyCursor = !fancyCursor">
-        {{ fancyCursor ? config.header.cursor.trueLabel : config.header.cursor.falseLabel }}
+      <UButton variant="ghost" size="md" color="neutral" @click="settings.toggleCursor">
+        {{ settings.cursor ? config.header.cursor.trueLabel : config.header.cursor.falseLabel }}
       </UButton>
 
       <!-- NSFW Switch -->
-      <USwitch :label="config.header.nsfw.label" :default-value="config.header.nsfw.default" />
+      <USwitch v-model="settings.nsfw" :label="config.header.nsfw.label" />
     </template>
   </UHeader>
 </template>

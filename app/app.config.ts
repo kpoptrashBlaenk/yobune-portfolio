@@ -20,6 +20,7 @@ export default defineAppConfig({
 
   /* Titles */
   titles: {
+    main: 'YobuneArt',
     animatedBanners: 'Animated Banners',
     ohterAnimations: 'Other Animations',
     characterSheets: 'Character Sheets',
@@ -55,8 +56,7 @@ export default defineAppConfig({
       },
       {
         id: DialogId.Images,
-        dialog:
-          'There is a lot more, but here are some of my favorite images I created! :3'
+        dialog: 'There is a lot more, but here are some of my favorite images I created! :3'
       },
       {
         id: DialogId.End,
