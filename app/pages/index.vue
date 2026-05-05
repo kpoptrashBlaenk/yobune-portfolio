@@ -14,5 +14,7 @@ const config = useAppConfig()
     <TitleComponent :title="config.titles.ohterAnimations" />
 
     <AnimationMasonry />
+
+    <TitleComponent :title="config.titles.characterSheets" />
   </div>
 </template>
