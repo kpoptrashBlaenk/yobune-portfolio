@@ -24,7 +24,8 @@ export default defineAppConfig({
     animatedBanners: 'Animated Banners',
     ohterAnimations: 'Other Animations',
     characterSheets: 'Character Sheets',
-    otherImages: 'Other Images'
+    otherImages: 'Other Images',
+    nsfwSection: 'NSFW Section'
   },
 
   /* Dialog */
