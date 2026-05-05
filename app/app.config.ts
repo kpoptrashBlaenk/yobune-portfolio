@@ -184,9 +184,9 @@ export default defineAppConfig({
         'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/RNMWEFXTHDKO/26d50697-3a68-4dc3-b7e0-c2530274d7d5.webm'
     },
     quality: {
-      title: 'Low vs High Quality',
-      low: 'string',
-      high: 'string'
+      title: 'Full HD vs UHD',
+      low: 'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/verified/C29UE92RJKCI/3019a6af-2b76-4546-b0c2-84b3ee4a90a8.webp',
+      high: 'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/portfolio/100e6662-bd27-4a11-9c15-5c48a147d008.webp'
     },
     process: {
       title: 'Work Process',

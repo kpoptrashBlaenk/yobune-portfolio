@@ -19,5 +19,11 @@ const config = useAppConfig()
         preload="metadata"
       />
     </div>
+
+    <!-- Quality Comparison -->
+    <div>
+      <TitleComponent :title="config.work.quality.title" secondary />
+      <ComparisonComponent :image-a="config.work.quality.low" :image-b="config.work.quality.high" />
+    </div>
   </div>
 </template>
