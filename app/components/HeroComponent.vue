@@ -9,7 +9,7 @@ const config = useAppConfig()
 <template>
   <div class="relative">
     <!-- Hero Image -->
-    <img class="w-full rounded-4xl" :src="config.hero.image" />
+    <ImageComponent class="w-full rounded-4xl!" :src="config.hero.image" />
 
     <!-- Dialogs -->
     <DialogComponent :id="DialogId.Intro" class="top-0 translate-y-1/2 left-5" />

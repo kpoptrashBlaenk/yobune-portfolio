@@ -32,6 +32,11 @@ export const useDialogStore = defineStore('dialog', () => {
     })
   }
 
+  function stop() {
+    index.value = -1
+    return
+  }
+
   /** Called by the component when its typewriter finishes */
   function onTypingDone() {
     isTyping.value = false
@@ -49,6 +54,7 @@ export const useDialogStore = defineStore('dialog', () => {
     isStarted,
     isLast,
     next,
+    stop,
     onTypingDone,
     onTypingStart
   }

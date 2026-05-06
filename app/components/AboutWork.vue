@@ -9,7 +9,7 @@ const config = useAppConfig()
 <template>
   <div class="relative grid grid-cols-2 gap-5">
     <!-- Dialog -->
-    <DialogComponent :id="DialogId.Work" />
+    <DialogComponent :id="DialogId.Work" class="top-10 left-5 z-50" />
 
     <!-- Timelapse -->
     <div>
@@ -40,7 +40,7 @@ const config = useAppConfig()
           <UIcon v-if="key > 0" name="material-symbols:chevron-right" class="shrink-0 size-20" />
 
           <div class="relative flex-1 min-w-0">
-            <img :src="item.image" class="w-full h-auto rounded-xl" />
+            <ImageComponent :src="item.image" class="w-full h-auto" />
             <div class="absolute bottom-0 py-1 px-3 bg-black/75 w-full rounded-b-xl">
               {{ item.title }}
             </div>

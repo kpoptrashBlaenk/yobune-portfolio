@@ -30,15 +30,18 @@ watch(isActive, (active) => {
     <UCard v-if="scene && isActive" :id="scene.id" class="absolute w-1/3">
       <div class="flex items-center gap-4 h-24">
         <!-- Image -->
-        <img :src="config.dialog.image" class="w-16 h-16 rounded-xl" />
+        <ImageComponent :src="config.dialog.image" class="w-16 h-16" />
         <!-- Text -->
         <p>{{ output }}</p>
       </div>
 
       <!-- Footer -->
       <template #footer>
-        <div class="flex justify-end h-8">
+        <div class="flex justify-end gap-5 h-8">
           <!-- Action Button -->
+          <UButton v-if="!dialog.isTyping" variant="outline" @click="dialog.stop">
+            {{ config.dialog.disableActionLabel }}
+          </UButton>
           <UButton v-if="!dialog.isTyping" @click="dialog.next">
             {{ scene.actionLabel ?? config.dialog.defaultActionLabel }}
           </UButton>

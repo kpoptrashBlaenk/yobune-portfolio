@@ -5,31 +5,54 @@ const config = useAppConfig()
 
 <template>
   <div>
-    <HeroComponent class="mt-10" />
+    <LightboxModal />
 
-    <TitleComponent :title="config.titles.animatedBanners" />
+    <!-- Hero -->
+    <SectionComponent>
+      <HeroComponent class="mt-10" />
+    </SectionComponent>
 
-    <BannerGallery />
+    <!-- Banners -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.animatedBanners" />
 
-    <TitleComponent :title="config.titles.ohterAnimations" />
+      <BannerGallery />
+    </SectionComponent>
 
-    <AnimationMasonry />
+    <!-- Animations -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.ohterAnimations" />
 
-    <TitleComponent :title="config.titles.characterSheets" />
+      <AnimationMasonry />
+    </SectionComponent>
 
-    <CharacterSheets />
+    <!-- Character Sheets -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.characterSheets" />
 
-    <TitleComponent :title="config.titles.otherImages" />
+      <CharacterSheets />
+    </SectionComponent>
 
-    <ImageMasonry />
+    <!-- Other Images -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.otherImages" />
 
-    <TitleComponent :title="config.titles.nsfwGallery" />
+      <ImageMasonry />
+    </SectionComponent>
 
-    <NsfwGallery />
+    <!-- Nsfw -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.nsfwGallery" />
 
-    <TitleComponent :title="config.titles.work" />
+      <NsfwGallery />
+    </SectionComponent>
 
-    <AboutWork />
+    <!-- Working Process -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.work" />
+
+      <AboutWork />
+    </SectionComponent>
 
     <USeparator class="mt-10" />
   </div>

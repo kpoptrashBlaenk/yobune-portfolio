@@ -36,7 +36,7 @@ function next() {
       <!-- Dialog -->
       <DialogComponent
         :id="DialogId.Banners"
-        class="absolute top-1/2 -translate-y-1/2 left-5 z-50"
+        class="absolute top-1/2 -translate-y-1/2 left-10 z-50"
       />
 
       <!-- Sliders -->
@@ -54,9 +54,9 @@ function next() {
           zIndex: 10 - Math.abs(getOffset(i)) * 5
         }"
       >
-        <img
+        <ImageComponent
           :src="img"
-          class="w-full h-75 object-cover rounded-xl transition-all duration-500"
+          class="w-full h-75 object-cover transition-all duration-500"
           :class="getOffset(i) === 0 ? 'h-100' : ''"
         />
       </div>

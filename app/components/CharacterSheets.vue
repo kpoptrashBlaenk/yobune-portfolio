@@ -13,16 +13,16 @@ const selectedKey = ref(0)
 <template>
   <div class="relative flex gap-5 items-center h-[46vw]">
     <!-- Dialog -->
-    <DialogComponent :id="DialogId.Characters" class="top-0 left-4 z-50" />
+    <DialogComponent :id="DialogId.Characters" class="top-0 left-5" />
 
     <!-- Left -->
     <div class="w-1/2 flex items-center justify-center h-full">
       <!-- Selected Sheet -->
       <Transition name="fade-scale" mode="out-in">
-        <img
+        <ImageComponent
           :key="selectedKey"
-          :src="characterSheets[selectedKey]"
-          class="max-w-full max-h-full rounded-xl"
+          :src="characterSheets[selectedKey]!"
+          class="max-w-full max-h-full"
         />
       </Transition>
     </div>
@@ -46,6 +46,7 @@ const selectedKey = ref(0)
         >
           <img
             :src="sheet"
+            draggable="false"
             class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           />
         </div>
