@@ -17,11 +17,10 @@
   --color-green-950: #052e16;
 }
 
-html,
-body,
-*,
-*::after,
-*::before {
+body.fancy-cursor,
+body.fancy-cursor *,
+body.fancy-cursor *::after,
+body.fancy-cursor *::before {
   cursor: none !important;
 }
 
