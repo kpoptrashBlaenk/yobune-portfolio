@@ -7,5 +7,5 @@ const { open } = useLightbox()
 </script>
 
 <template>
-  <img :src="src" class="cursor-pointer rounded-xl" @click="open(src)" />
+  <img :src="src" draggable="false" class="cursor-pointer rounded-xl" @click="open(src)" />
 </template>
