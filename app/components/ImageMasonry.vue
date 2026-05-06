@@ -15,7 +15,7 @@ const config = useAppConfig()
     <!-- Masonry Grid -->
     <div class="columns-4 gap-2">
       <div v-for="(image, key) in config.images.images" :key="key" class="mb-2">
-        <img :src="image" class="rounded-xl" />
+        <ImageComponent :src="image" />
       </div>
     </div>
   </div>

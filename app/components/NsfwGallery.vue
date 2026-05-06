@@ -14,11 +14,11 @@ const settings = useSettingsStore()
 
     <!-- Nsfw Gallery -->
     <div class="flex gap-4 overflow-x-auto pb-4 h-96 rounded-xl">
-      <img
+      <ImageComponent
         v-for="(image, key) in config.nsfw.images"
         :key
         :src="image"
-        class="rounded-xl transition"
+        class="transition"
         :class="{
           'blur-xl brightness-75': !settings.nsfw
         }"

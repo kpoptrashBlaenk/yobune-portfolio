@@ -19,10 +19,10 @@ const selectedKey = ref(0)
     <div class="w-1/2 flex items-center justify-center h-full">
       <!-- Selected Sheet -->
       <Transition name="fade-scale" mode="out-in">
-        <img
+        <ImageComponent
           :key="selectedKey"
-          :src="characterSheets[selectedKey]"
-          class="max-w-full max-h-full rounded-xl"
+          :src="characterSheets[selectedKey]!"
+          class="max-w-full max-h-full"
         />
       </Transition>
     </div>
@@ -44,7 +44,7 @@ const selectedKey = ref(0)
           style="aspect-ratio: 1 / 1"
           @click="selectedKey = key"
         >
-          <img
+          <ImageComponent
             :src="sheet"
             class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           />

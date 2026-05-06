@@ -5,6 +5,8 @@ const config = useAppConfig()
 
 <template>
   <div>
+    <LightboxModal />
+
     <HeroComponent class="mt-10" />
 
     <TitleComponent :title="config.titles.animatedBanners" />

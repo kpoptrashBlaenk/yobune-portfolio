@@ -5,10 +5,13 @@ export const useLightbox = () => {
   const open = (src: string) => {
     image.value = src
     isOpen.value = true
+
+    console.log(isOpen.value)
   }
 
   const close = () => {
     isOpen.value = false
+    console.log(isOpen.value)
   }
 
   return { isOpen, image, open, close }
