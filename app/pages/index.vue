@@ -7,31 +7,52 @@ const config = useAppConfig()
   <div>
     <LightboxModal />
 
-    <HeroComponent class="mt-10" />
+    <!-- Hero -->
+    <SectionComponent>
+      <HeroComponent class="mt-10" />
+    </SectionComponent>
 
-    <TitleComponent :title="config.titles.animatedBanners" />
+    <!-- Banners -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.animatedBanners" />
 
-    <BannerGallery />
+      <BannerGallery />
+    </SectionComponent>
 
-    <TitleComponent :title="config.titles.ohterAnimations" />
+    <!-- Animations -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.ohterAnimations" />
 
-    <AnimationMasonry />
+      <AnimationMasonry />
+    </SectionComponent>
 
-    <TitleComponent :title="config.titles.characterSheets" />
+    <!-- Character Sheets -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.characterSheets" />
 
-    <CharacterSheets />
+      <CharacterSheets />
+    </SectionComponent>
 
-    <TitleComponent :title="config.titles.otherImages" />
+    <!-- Other Images -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.otherImages" />
 
-    <ImageMasonry />
+      <ImageMasonry />
+    </SectionComponent>
 
-    <TitleComponent :title="config.titles.nsfwGallery" />
+    <!-- Nsfw -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.nsfwGallery" />
 
-    <NsfwGallery />
+      <NsfwGallery />
+    </SectionComponent>
 
-    <TitleComponent :title="config.titles.work" />
+    <!-- Working Process -->
+    <SectionComponent>
+      <TitleComponent :title="config.titles.work" />
 
-    <AboutWork />
+      <AboutWork />
+    </SectionComponent>
 
     <USeparator class="mt-10" />
   </div>
