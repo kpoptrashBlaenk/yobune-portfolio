@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* Refs */
 const mousePosition = ref<{
   x: number
   y: number
@@ -6,30 +7,77 @@ const mousePosition = ref<{
 const mouseState = ref<'idle' | 'click' | 'move'>('idle')
 const timer = ref()
 
-onMounted(() => {
-  // on move
-  window.addEventListener('mousemove', (event: MouseEvent) => {
-    // set to move and set position
-    console.log(Math.abs(event.movementX), Math.abs(event.movementY))
-    if (Math.abs(event.movementX) > 1 || Math.abs(event.movementY) > 1) mouseState.value = 'move'
-    mousePosition.value = { x: event.clientX, y: event.clientY }
+/* Trail */
+const canvasRef = ref<HTMLCanvasElement>()
+let ctx: CanvasRenderingContext2D | null = null
+let particles: {
+  x: number
+  y: number
+  hue: number
+  alpha: number
+  size: number
+}[] = []
+let hue = 0
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+let rafId: number
 
-    // clear & recreate timer for idle
+/* Functions */
+function resizeCanvas() {
+  if (!canvasRef.value) return
+  canvasRef.value.width = window.innerWidth
+  canvasRef.value.height = window.innerHeight
+}
+
+function spawnParticle(x: number, y: number) {
+  particles.push({ x, y, hue, alpha: 1, size: 10 })
+  hue = (hue + 8) % 360
+}
+
+function drawLoop() {
+  if (!ctx || !canvasRef.value) return
+  ctx.clearRect(0, 0, canvasRef.value.width, canvasRef.value.height)
+
+  particles = particles.filter((p) => p.alpha > 0.01)
+
+  for (const p of particles) {
+    ctx.beginPath()
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
+    ctx.fillStyle = `hsla(${p.hue}, 100%, 65%, ${p.alpha})`
+    ctx.fill()
+    p.alpha -= 0.035
+    p.size *= 0.97
+  }
+
+  rafId = requestAnimationFrame(drawLoop)
+}
+
+/* Lifecycle Hooks */
+onMounted(() => {
+  // canvas setup
+  if (canvasRef.value) {
+    ctx = canvasRef.value.getContext('2d')
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
+    drawLoop()
+  }
+
+  // mouse events
+  window.addEventListener('mousemove', (event: MouseEvent) => {
+    if (Math.abs(event.movementX) > 1 || Math.abs(event.movementY) > 1) {
+      mouseState.value = 'move'
+      spawnParticle(event.clientX, event.clientY)
+    }
+    mousePosition.value = { x: event.clientX, y: event.clientY }
     clearTimeout(timer.value)
     timer.value = setTimeout(() => {
       mouseState.value = 'idle'
     }, 50)
   })
 
-  // on down
   window.addEventListener('mousedown', () => {
-    // set click
     mouseState.value = 'click'
   })
-
-  // on up
   window.addEventListener('mouseup', () => {
-    // set idle
     mouseState.value = 'idle'
   })
 })
@@ -37,9 +85,10 @@ onMounted(() => {
 
 <template>
   <Teleport to="body">
+    <canvas ref="canvasRef" class="fixed inset-0 z-9998 pointer-events-none" />
     <img
       :src="`/cursors/${mouseState}.ico`"
-      class="fixed z-900 pointer-events-none select-none -translate-y-1/2 -translate-x-1/2"
+      class="fixed z-9999 pointer-events-none -translate-y-1/2 -translate-x-1/2"
       :draggable="false"
       :style="{
         left: `${mousePosition?.x}px`,

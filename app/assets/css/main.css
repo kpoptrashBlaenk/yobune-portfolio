@@ -24,3 +24,7 @@ body,
 *::before {
   cursor: none !important;
 }
+
+img {
+  user-select: none;
+}
