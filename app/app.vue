@@ -5,6 +5,9 @@ useHead({
   link: [{ rel: 'icon', href: '/favicon.ico' }],
   htmlAttrs: {
     lang: 'en'
+  },
+  bodyAttrs: {
+    class: 'fancy-cursor'
   }
 })
 
@@ -22,6 +25,7 @@ onNuxtReady(() => {
     <HeaderComponent />
 
     <NuxtLayout>
+      <CursorComponent />
       <NuxtPage />
     </NuxtLayout>
 

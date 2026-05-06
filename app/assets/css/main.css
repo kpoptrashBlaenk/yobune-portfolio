@@ -2,17 +2,38 @@
 @import '@nuxt/ui';
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
+  --color-yellow-50: #fffdf7;
+  --color-yellow-100: #fff9e6;
+  --color-yellow-200: #fff2cc;
+  --color-yellow-300: #ffe9a8;
+  --color-yellow-400: #f6dc86;
+  --color-yellow-500: #e6c96a;
+  --color-yellow-600: #cbb055;
+  --color-yellow-700: #a38a42;
+  --color-yellow-800: #77652f;
+  --color-yellow-900: #4d401d;
+  --color-yellow-950: #2a240f;
 
-  --color-green-50: #effdf5;
-  --color-green-100: #d9fbe8;
-  --color-green-200: #b3f5d1;
-  --color-green-300: #75edae;
-  --color-green-400: #00dc82;
-  --color-green-500: #00c16a;
-  --color-green-600: #00a155;
-  --color-green-700: #007f45;
-  --color-green-800: #016538;
-  --color-green-900: #0a5331;
-  --color-green-950: #052e16;
+  --color-zinc-50: #fef5f7;
+  --color-zinc-100: #fae8ec;
+  --color-zinc-200: #f0ccd4;
+  --color-zinc-300: #e0a8b4;
+  --color-zinc-400: #c87888;
+  --color-zinc-500: #a85268;
+  --color-zinc-600: #853848;
+  --color-zinc-700: #5f2833;
+  --color-zinc-800: #3a181f;
+  --color-zinc-900: #1f0d10;
+  --color-zinc-950: #0f0608;
+}
+
+body.fancy-cursor,
+body.fancy-cursor *,
+body.fancy-cursor *::after,
+body.fancy-cursor *::before {
+  cursor: none !important;
+}
+
+img {
+  user-select: none;
 }
