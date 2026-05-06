@@ -5,7 +5,7 @@ const config = useAppConfig()
 
 <template>
   <UFooter
-    class="text-sm"
+    class="text-muted text-sm"
     :ui="{
       bottom: 'py-0!'
     }"
@@ -26,12 +26,12 @@ const config = useAppConfig()
     </template>
 
     <template #bottom>
-      <div class="flex gap-1 items-center justify-center py-2">
+      <div class="flex gap-1 items-center justify-center py-2 bg-muted border-t border-default">
         <!-- Legal -->
         <p>Copyright © {{ new Date().getFullYear() }}</p>
 
         <!-- Credit -->
-        <p>Designed by</p>
+        <p>Created by</p>
         <UButton
           icon="i-simple-icons-github"
           color="neutral"
