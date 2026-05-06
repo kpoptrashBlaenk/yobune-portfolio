@@ -37,8 +37,11 @@ watch(isActive, (active) => {
 
       <!-- Footer -->
       <template #footer>
-        <div class="flex justify-end h-8">
+        <div class="flex justify-end gap-5 h-8">
           <!-- Action Button -->
+          <UButton v-if="!dialog.isTyping" variant="outline" @click="dialog.stop">
+            {{ config.dialog.disableActionLabel }}
+          </UButton>
           <UButton v-if="!dialog.isTyping" @click="dialog.next">
             {{ scene.actionLabel ?? config.dialog.defaultActionLabel }}
           </UButton>
