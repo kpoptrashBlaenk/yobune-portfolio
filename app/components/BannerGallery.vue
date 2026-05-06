@@ -36,7 +36,7 @@ function next() {
       <!-- Dialog -->
       <DialogComponent
         :id="DialogId.Banners"
-        class="absolute top-1/2 -translate-y-1/2 left-5 z-50"
+        class="absolute top-1/2 -translate-y-1/2 left-10 z-50"
       />
 
       <!-- Sliders -->

@@ -10,7 +10,7 @@ const config = useAppConfig()
 <template>
   <div class="relative">
     <!-- Dialog -->
-    <DialogComponent :id="DialogId.Images" class="top-10 left-10" />
+    <DialogComponent :id="DialogId.Images" class="top-5 left-5 z-50" />
 
     <!-- Masonry Grid -->
     <div class="columns-4 gap-2">

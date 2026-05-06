@@ -9,7 +9,7 @@ const config = useAppConfig()
 <template>
   <div class="relative grid grid-cols-2 gap-5">
     <!-- Dialog -->
-    <DialogComponent :id="DialogId.Work" />
+    <DialogComponent :id="DialogId.Work" class="top-10 left-5 z-50" />
 
     <!-- Timelapse -->
     <div>
