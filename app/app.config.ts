@@ -5,6 +5,7 @@ import {
   type BannersConfig,
   type CharacterSheetsConfig,
   type DialogConfig,
+  type FooterConfig,
   type HeaderConfig,
   type HeroConfig,
   type ImagesConfig,
@@ -213,5 +214,16 @@ export default defineAppConfig({
         }
       ]
     }
-  } as WorkConfig
+  } as WorkConfig,
+
+  /* Footer */
+  footer: {
+    legal: '©2026 YobuneArt. All rights reserved.',
+    ownership: 'Artwork may not be reproduced or used without permission.',
+    contact: 'yobuneart@gmail.com',
+    credit: {
+      text: 'Created by kpoptrashBlaenk',
+      link: 'https://github.com/kpoptrashBlaenk'
+    }
+  } as FooterConfig
 })

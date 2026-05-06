@@ -30,5 +30,7 @@ const config = useAppConfig()
     <TitleComponent :title="config.titles.work" />
 
     <AboutWork />
+
+    <USeparator class="my-10" />
   </div>
 </template>
