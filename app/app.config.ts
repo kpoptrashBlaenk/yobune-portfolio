@@ -5,6 +5,7 @@ import {
   type BannersConfig,
   type CharacterSheetsConfig,
   type DialogConfig,
+  type FooterConfig,
   type HeaderConfig,
   type HeroConfig,
   type ImagesConfig,
@@ -86,6 +87,16 @@ export default defineAppConfig({
       {
         label: 'VGen',
         to: 'https://vgen.co/Yobune',
+        target: '_blank'
+      },
+      {
+        label: 'Etsy',
+        to: 'https://www.etsy.com/shop/YobuneArt',
+        target: '_blank'
+      },
+      {
+        label: 'Instagram',
+        to: 'https://www.instagram.com/yobune.art/',
         target: '_blank'
       }
     ] as NavigationMenuItem[],
@@ -213,5 +224,12 @@ export default defineAppConfig({
         }
       ]
     }
-  } as WorkConfig
+  } as WorkConfig,
+
+  /* Footer */
+  footer: {
+    ownership: 'Artwork may not be reproduced or used without permission.',
+    contact: 'yobuneart@gmail.com',
+    credit: 'https://github.com/kpoptrashBlaenk'
+  } as FooterConfig
 })
