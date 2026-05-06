@@ -88,6 +88,16 @@ export default defineAppConfig({
         label: 'VGen',
         to: 'https://vgen.co/Yobune',
         target: '_blank'
+      },
+      {
+        label: 'Etsy',
+        to: 'https://www.etsy.com/shop/YobuneArt',
+        target: '_blank'
+      },
+      {
+        label: 'Instagram',
+        to: 'https://www.instagram.com/yobune.art/',
+        target: '_blank'
       }
     ] as NavigationMenuItem[],
 
@@ -218,12 +228,8 @@ export default defineAppConfig({
 
   /* Footer */
   footer: {
-    legal: '©2026 YobuneArt. All rights reserved.',
     ownership: 'Artwork may not be reproduced or used without permission.',
     contact: 'yobuneart@gmail.com',
-    credit: {
-      text: 'Created by kpoptrashBlaenk',
-      link: 'https://github.com/kpoptrashBlaenk'
-    }
+    credit: 'https://github.com/kpoptrashBlaenk'
   } as FooterConfig
 })

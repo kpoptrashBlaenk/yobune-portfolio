@@ -24,5 +24,7 @@ onNuxtReady(() => {
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
+
+    <FooterComponent />
   </UApp>
 </template>

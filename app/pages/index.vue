@@ -4,7 +4,7 @@ const config = useAppConfig()
 </script>
 
 <template>
-  <div class="pb-20">
+  <div>
     <HeroComponent class="mt-10" />
 
     <TitleComponent :title="config.titles.animatedBanners" />
@@ -31,6 +31,6 @@ const config = useAppConfig()
 
     <AboutWork />
 
-    <USeparator class="my-10" />
+    <USeparator class="mt-10" />
   </div>
 </template>
