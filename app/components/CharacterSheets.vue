@@ -44,7 +44,7 @@ const selectedKey = ref(0)
           style="aspect-ratio: 1 / 1"
           @click="selectedKey = key"
         >
-          <ImageComponent
+          <img
             :src="sheet"
             class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           />
