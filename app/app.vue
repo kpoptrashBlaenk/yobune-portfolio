@@ -22,6 +22,7 @@ onNuxtReady(() => {
     <HeaderComponent />
 
     <NuxtLayout>
+      <CursorComponent />
       <NuxtPage />
     </NuxtLayout>
 
