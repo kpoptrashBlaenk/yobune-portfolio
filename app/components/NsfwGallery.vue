@@ -20,7 +20,7 @@ const settingsStore = useSettingsStore()
         :src="image"
         class="transition"
         :class="{
-          'blur-xl brightness-75': !settingsStore.nsfw
+          'blur-xl brightness-75 pointer-events-none': !settingsStore.nsfw
         }"
       />
     </div>
