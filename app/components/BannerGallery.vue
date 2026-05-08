@@ -29,7 +29,7 @@ function next() {
 <template>
   <div class="flex items-center gap-4">
     <!-- Up Button -->
-    <UButton icon="i-lucide-chevron-up" variant="ghost" size="xl" @click="prev" />
+    <UButton icon="i-lucide-chevron-up" size="xl" @click="prev" />
 
     <!-- Carousel -->
     <div class="relative flex-1 h-125 overflow-hidden flex items-center justify-center">
@@ -63,6 +63,6 @@ function next() {
     </div>
 
     <!-- Down Button -->
-    <UButton icon="i-lucide-chevron-down" variant="ghost" size="xl" @click="next" />
+    <UButton icon="i-lucide-chevron-down" size="xl" @click="next" />
   </div>
 </template>
