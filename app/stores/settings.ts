@@ -1,15 +1,19 @@
 export const useSettingsStore = defineStore('settingsStore', () => {
+  /* Constants */
   const config = useAppConfig()
   const cursorConfig = config.cursor
 
+  /* Refs */
   const cursor = ref<boolean>(cursorConfig.default)
   const nsfw = ref<boolean>(config.nsfw.default)
 
+  /* Lifecycle Hooks */
   onNuxtReady(() => {
     cursor.value = !(localStorage.getItem(cursorConfig.storageKey) === 'true')
     toggleCursor()
   })
 
+  /* Functions */
   function toggleCursor() {
     cursor.value = !cursor.value
     localStorage.setItem(cursorConfig.storageKey, String(cursor.value))
@@ -21,6 +25,7 @@ export const useSettingsStore = defineStore('settingsStore', () => {
     }
   }
 
+  /* Return */
   return {
     cursor,
     cursorConfig,
