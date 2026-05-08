@@ -6,7 +6,7 @@ const { reset } = useDialogStore()
 </script>
 
 <template>
-  <UHeader>
+  <UHeader :ui="{ title: 'text-secondary' }">
     <!-- Title -->
     <template #title> {{ titles.main }} </template>
 
