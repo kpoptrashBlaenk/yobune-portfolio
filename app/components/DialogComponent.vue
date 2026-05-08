@@ -7,19 +7,19 @@ const props = defineProps<{ id: DialogId }>()
 
 /* Constants */
 const { dialog } = useAppConfig()
-const { currentScene, onTypingDone, onTypingStart, stop, isTyping, next } = useDialogStore()
+const dialogStore = useDialogStore()
 
 /* Variables */
 const scene = dialog.scenes.find((scene) => scene.id === props.id)
 const text = ref<string>(scene?.dialog ?? '')
 const { output, start } = useTypewriter(text)
-const isActive = computed<boolean>(() => currentScene?.id === props.id)
+const isActive = computed<boolean>(() => dialogStore.currentScene?.id === props.id)
 
 /* Watches */
 watch(isActive, (active) => {
   if (!active) return
-  onTypingStart()
-  start(() => onTypingDone())
+  dialogStore.onTypingStart()
+  start(() => dialogStore.onTypingDone())
 })
 </script>
 
@@ -39,10 +39,10 @@ watch(isActive, (active) => {
       <template #footer>
         <div class="flex justify-end gap-5 h-8">
           <!-- Action Button -->
-          <UButton v-if="!isTyping" variant="outline" @click="stop">
+          <UButton v-if="!dialogStore.isTyping" variant="outline" @click="dialogStore.stop">
             {{ dialog.disableActionLabel }}
           </UButton>
-          <UButton v-if="!isTyping" @click="next">
+          <UButton v-if="!dialogStore.isTyping" @click="dialogStore.next">
             {{ scene.actionLabel ?? dialog.defaultActionLabel }}
           </UButton>
         </div>

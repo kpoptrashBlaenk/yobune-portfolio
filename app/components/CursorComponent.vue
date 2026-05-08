@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* Constants */
-const settings = useSettingsStore()
+const settingsStore = useSettingsStore()
 
 /* Refs */
 const mousePosition = ref<{
@@ -88,9 +88,13 @@ onMounted(() => {
 
 <template>
   <Teleport to="body">
-    <canvas v-if="settings.cursor" ref="canvas" class="fixed inset-0 z-9998 pointer-events-none" />
+    <canvas
+      v-if="settingsStore.cursor"
+      ref="canvas"
+      class="fixed inset-0 z-9998 pointer-events-none"
+    />
     <img
-      v-if="settings.cursor && mousePosition"
+      v-if="settingsStore.cursor && mousePosition"
       :src="`/cursors/${mouseState}.ico`"
       class="fixed z-9999 pointer-events-none -translate-y-1/2 -translate-x-1/2"
       :draggable="false"
