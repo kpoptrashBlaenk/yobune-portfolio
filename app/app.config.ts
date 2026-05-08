@@ -103,6 +103,8 @@ export default defineAppConfig({
     ] as NavigationMenuItem[],
 
     cursor: {
+      className: 'fancy-cursor',
+      storageKey: 'blaenk-cursor-mode',
       default: true,
       trueLabel: 'Cursor: Fancy',
       falseLabel: 'Cursor: Boring'
