@@ -9,17 +9,16 @@ export const useDialogStore = defineStore('dialog', () => {
   const index = ref(-1)
   const isTyping = ref(false)
 
-  /* COmputeds */
+  /* Computeds */
   const currentScene = computed<DialogRecord | null>(() => scenes[index.value] ?? null)
-  const isStarted = computed<boolean>(() => index.value >= 0)
-  const isLast = computed<boolean>(() => index.value >= scenes.length - 1)
 
   /* Functions */
   async function next() {
     if (isTyping.value) return
 
-    if (isLast.value) {
-      index.value = -1
+    // check if last
+    if (index.value >= scenes.length - 1) {
+      stop()
       return
     }
 
@@ -38,11 +37,13 @@ export const useDialogStore = defineStore('dialog', () => {
 
   function stop() {
     index.value = -1
+    localStorage.setItem(config.dialog.storageKey, 'false')
     return
   }
 
   function reset() {
     stop()
+    localStorage.removeItem(config.dialog.storageKey)
     next()
   }
 
@@ -61,8 +62,6 @@ export const useDialogStore = defineStore('dialog', () => {
     index,
     isTyping,
     currentScene,
-    isStarted,
-    isLast,
     next,
     stop,
     reset,

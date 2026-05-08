@@ -10,10 +10,11 @@ useHead({
 
 /* Constants */
 const dialog = useDialogStore()
+const config = useAppConfig()
 
 /* Lifecycle Hooks */
 onNuxtReady(() => {
-  dialog.next()
+  if (!localStorage.getItem(config.dialog.storageKey)) dialog.next()
 })
 </script>
 

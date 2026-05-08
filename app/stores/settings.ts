@@ -6,14 +6,12 @@ export const useSettingsStore = defineStore('settingsStore', () => {
   /* Refs */
   const cursor = ref<boolean>()
   const nsfw = ref<boolean>(config.nsfw.default)
-  const dialog = ref<boolean>()
 
   /* Lifecycle Hooks */
   onNuxtReady(() => {
     cursor.value = !(
       (localStorage.getItem(cursorConfig.storageKey) ?? String(cursorConfig.default)) === 'true'
     )
-    dialog.value = (localStorage.getItem(config.dialog.storageKey) ?? 'true') === 'true'
     toggleCursor()
   })
 
