@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* Constants */
-const settings = useSettingsStore()
+const settingsStore = useSettingsStore()
 
 /* Refs */
 const mousePosition = ref<{
@@ -11,7 +11,7 @@ const mouseState = ref<'idle' | 'click' | 'move'>('idle')
 const timer = ref()
 
 /* Trail */
-const canvasRef = ref<HTMLCanvasElement>()
+const canvas = ref<HTMLCanvasElement>()
 let ctx: CanvasRenderingContext2D | null = null
 let particles: {
   x: number
@@ -26,9 +26,9 @@ let rafId: number
 
 /* Functions */
 function resizeCanvas() {
-  if (!canvasRef.value) return
-  canvasRef.value.width = window.innerWidth
-  canvasRef.value.height = window.innerHeight
+  if (!canvas.value) return
+  canvas.value.width = window.innerWidth
+  canvas.value.height = window.innerHeight
 }
 
 function spawnParticle(x: number, y: number) {
@@ -37,8 +37,8 @@ function spawnParticle(x: number, y: number) {
 }
 
 function drawLoop() {
-  if (!ctx || !canvasRef.value) return
-  ctx.clearRect(0, 0, canvasRef.value.width, canvasRef.value.height)
+  if (!ctx || !canvas.value) return
+  ctx.clearRect(0, 0, canvas.value.width, canvas.value.height)
 
   particles = particles.filter((p) => p.alpha > 0.01)
 
@@ -57,8 +57,8 @@ function drawLoop() {
 /* Lifecycle Hooks */
 onMounted(() => {
   // canvas setup
-  if (canvasRef.value) {
-    ctx = canvasRef.value.getContext('2d')
+  if (canvas.value) {
+    ctx = canvas.value.getContext('2d')
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
     drawLoop()
@@ -89,12 +89,12 @@ onMounted(() => {
 <template>
   <Teleport to="body">
     <canvas
-      v-if="settings.cursor"
-      ref="canvasRef"
+      v-if="settingsStore.cursor"
+      ref="canvas"
       class="fixed inset-0 z-9998 pointer-events-none"
     />
     <img
-      v-if="settings.cursor && mousePosition"
+      v-if="settingsStore.cursor && mousePosition"
       :src="`/cursors/${mouseState}.ico`"
       class="fixed z-9999 pointer-events-none -translate-y-1/2 -translate-x-1/2"
       :draggable="false"

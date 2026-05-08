@@ -3,8 +3,8 @@
 import { DialogId } from '~/types'
 
 /* Constants */
-const config = useAppConfig()
-const settings = useSettingsStore()
+const { nsfw } = useAppConfig()
+const settingsStore = useSettingsStore()
 </script>
 
 <template>
@@ -15,12 +15,12 @@ const settings = useSettingsStore()
     <!-- Nsfw Gallery -->
     <div class="flex gap-4 overflow-x-auto pb-4 h-96 rounded-xl">
       <ImageComponent
-        v-for="(image, key) in config.nsfw.images"
+        v-for="(image, key) in nsfw.images"
         :key
         :src="image"
         class="transition"
         :class="{
-          'blur-xl brightness-75': !settings.nsfw
+          'blur-xl brightness-75': !settingsStore.nsfw
         }"
       />
     </div>

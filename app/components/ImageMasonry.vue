@@ -4,7 +4,7 @@ import { DialogId } from '~/types'
 import DialogComponent from './DialogComponent.vue'
 
 /* Constants */
-const config = useAppConfig()
+const { images } = useAppConfig()
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const config = useAppConfig()
 
     <!-- Masonry Grid -->
     <div class="columns-4 gap-2">
-      <div v-for="(image, key) in config.images.images" :key="key" class="mb-2">
+      <div v-for="(image, key) in images.images" :key="key" class="mb-2">
         <ImageComponent :src="image" />
       </div>
     </div>

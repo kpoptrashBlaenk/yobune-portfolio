@@ -3,8 +3,8 @@
 import { DialogId } from '~/types'
 
 /* Constants */
-const config = useAppConfig()
-const total = config.banners.banners.length
+const { banners } = useAppConfig()
+const total = banners.banners.length
 
 /* Refs */
 const current = ref(0)
@@ -41,7 +41,7 @@ function next() {
 
       <!-- Sliders -->
       <div
-        v-for="(img, i) in config.banners.banners"
+        v-for="(img, i) in banners.banners"
         :key="i"
         class="absolute w-full transition-all duration-500 ease-in-out"
         :class="{

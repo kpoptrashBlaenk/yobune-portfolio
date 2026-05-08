@@ -1,21 +1,24 @@
 import type { DialogRecord } from '~/types'
 
 export const useDialogStore = defineStore('dialog', () => {
+  /* Constants */
   const config = useAppConfig()
   const scenes = config.dialog.scenes
 
+  /* Refs */
   const index = ref(-1)
   const isTyping = ref(false)
 
+  /* Computeds */
   const currentScene = computed<DialogRecord | null>(() => scenes[index.value] ?? null)
-  const isStarted = computed<boolean>(() => index.value >= 0)
-  const isLast = computed<boolean>(() => index.value >= scenes.length - 1)
 
+  /* Functions */
   async function next() {
     if (isTyping.value) return
 
-    if (isLast.value) {
-      index.value = -1
+    // check if last
+    if (index.value >= scenes.length - 1) {
+      stop()
       return
     }
 
@@ -34,7 +37,14 @@ export const useDialogStore = defineStore('dialog', () => {
 
   function stop() {
     index.value = -1
+    localStorage.setItem(config.dialog.storageKey, 'false')
     return
+  }
+
+  function reset() {
+    stop()
+    localStorage.removeItem(config.dialog.storageKey)
+    next()
   }
 
   /** Called by the component when its typewriter finishes */
@@ -47,14 +57,14 @@ export const useDialogStore = defineStore('dialog', () => {
     isTyping.value = true
   }
 
+  /* Return */
   return {
     index,
     isTyping,
     currentScene,
-    isStarted,
-    isLast,
     next,
     stop,
+    reset,
     onTypingDone,
     onTypingStart
   }

@@ -3,8 +3,8 @@
 import { DialogId } from '~/types'
 
 /* Constants */
-const config = useAppConfig()
-const characterSheets = config.sheets.sheets
+const { sheets } = useAppConfig()
+const characterSheets = sheets.sheets
 
 /* Refs */
 const selectedKey = ref(0)

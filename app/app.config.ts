@@ -4,6 +4,7 @@ import {
   type AnimationsConfig,
   type BannersConfig,
   type CharacterSheetsConfig,
+  type CursorConfig,
   type DialogConfig,
   type FooterConfig,
   type HeaderConfig,
@@ -17,9 +18,19 @@ export default defineAppConfig({
   ui: {
     colors: {
       primary: 'yellow',
+      secondary: 'zinc',
       neutral: 'zinc'
     }
   },
+
+  /* Cursor */
+  cursor: {
+    className: 'fancy-cursor',
+    storageKey: 'blaenk-fancy-cursor',
+    default: true,
+    trueLabel: 'Cursor: Fancy',
+    falseLabel: 'Cursor: Boring'
+  } as CursorConfig,
 
   /* Titles */
   titles: {
@@ -34,9 +45,11 @@ export default defineAppConfig({
 
   /* Dialog */
   dialog: {
+    storageKey: 'blaenk-dialog-active',
+    resetLabel: 'Reset Pinky',
     defaultActionLabel: 'Continue',
     disableActionLabel: 'Turn off',
-    speed: 20,
+    speed: 15,
     image:
       'https://storage.vgen.co/uploads/6688ae01-b0ab-494a-b95f-8debacc4d4d0/avatars/c994765a-609b-4db2-ad2a-fb476a540298.webp',
     scenes: [
@@ -100,13 +113,7 @@ export default defineAppConfig({
         to: 'https://www.instagram.com/yobune.art/',
         target: '_blank'
       }
-    ] as NavigationMenuItem[],
-
-    cursor: {
-      default: true,
-      trueLabel: 'Cursor: Fancy',
-      falseLabel: 'Cursor: Boring'
-    }
+    ] as NavigationMenuItem[]
   } as HeaderConfig,
 
   /* Hero */

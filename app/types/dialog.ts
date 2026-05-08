@@ -16,6 +16,8 @@ export type DialogRecord = {
 }
 
 export type DialogConfig = {
+  storageKey: string
+  resetLabel: string
   disableActionLabel: string
   defaultActionLabel: string
   speed: number

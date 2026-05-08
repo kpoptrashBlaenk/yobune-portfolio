@@ -1,20 +1,17 @@
 <script setup lang="ts">
-/* Imports */
-import type { NavigationMenuItem } from '@nuxt/ui'
-
 /* Constants */
-const config = useAppConfig()
-const settings = useSettingsStore()
-const items: NavigationMenuItem[] = config.header.navigationMenuItems
+const { header, nsfw, titles, cursor, dialog } = useAppConfig()
+const settingsStore = useSettingsStore()
+const { reset } = useDialogStore()
 </script>
 
 <template>
   <UHeader>
     <!-- Title -->
-    <template #title> {{ config.titles.main }} </template>
+    <template #title> {{ titles.main }} </template>
 
     <!-- Links -->
-    <UNavigationMenu :items />
+    <UNavigationMenu :items="header.navigationMenuItems" />
 
     <!-- Right Side -->
     <template #right>
@@ -22,12 +19,17 @@ const items: NavigationMenuItem[] = config.header.navigationMenuItems
       <UColorModeButton />
 
       <!-- Cursor Mode -->
-      <UButton variant="ghost" size="md" color="neutral" @click="settings.toggleCursor">
-        {{ settings.cursor ? config.header.cursor.trueLabel : config.header.cursor.falseLabel }}
+      <UButton variant="ghost" size="md" color="neutral" @click="settingsStore.toggleCursor">
+        {{ settingsStore.cursor ? cursor.trueLabel : cursor.falseLabel }}
+      </UButton>
+
+      <!-- Reset Dialog -->
+      <UButton size="md" @click="reset">
+        {{ dialog.resetLabel }}
       </UButton>
 
       <!-- NSFW Switch -->
-      <USwitch v-model="settings.nsfw" :label="config.nsfw.label" />
+      <USwitch v-model="settingsStore.nsfw" :label="nsfw.label" />
     </template>
   </UHeader>
 </template>

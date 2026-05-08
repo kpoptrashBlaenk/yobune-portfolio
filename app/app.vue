@@ -5,18 +5,16 @@ useHead({
   link: [{ rel: 'icon', href: '/favicon.ico' }],
   htmlAttrs: {
     lang: 'en'
-  },
-  bodyAttrs: {
-    class: 'fancy-cursor'
   }
 })
 
 /* Constants */
 const dialog = useDialogStore()
+const config = useAppConfig()
 
 /* Lifecycle Hooks */
 onNuxtReady(() => {
-  dialog.next()
+  if (!localStorage.getItem(config.dialog.storageKey)) dialog.next()
 })
 </script>
 

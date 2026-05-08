@@ -1,12 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/ui', '@pinia/nuxt', '@vueuse/nuxt'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@pinia/nuxt', '@vueuse/nuxt', '@nuxtjs/color-mode'],
 
   devtools: {
     enabled: true
   },
 
   css: ['~/assets/css/main.css'],
+
+  colorMode: {
+    storageKey: 'blaenk-color-mode'
+  },
 
   routeRules: {
     '/': { prerender: true }
