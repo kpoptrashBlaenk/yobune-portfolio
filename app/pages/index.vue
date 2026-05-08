@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* Constants */
-const config = useAppConfig()
+const { titles } = useAppConfig()
 </script>
 
 <template>
@@ -14,42 +14,42 @@ const config = useAppConfig()
 
     <!-- Banners -->
     <SectionComponent>
-      <TitleComponent :title="config.titles.animatedBanners" />
+      <TitleComponent :title="titles.animatedBanners" />
 
       <BannerGallery />
     </SectionComponent>
 
     <!-- Animations -->
     <SectionComponent>
-      <TitleComponent :title="config.titles.ohterAnimations" />
+      <TitleComponent :title="titles.ohterAnimations" />
 
       <AnimationMasonry />
     </SectionComponent>
 
     <!-- Character Sheets -->
     <SectionComponent>
-      <TitleComponent :title="config.titles.characterSheets" />
+      <TitleComponent :title="titles.characterSheets" />
 
       <CharacterSheets />
     </SectionComponent>
 
     <!-- Other Images -->
     <SectionComponent>
-      <TitleComponent :title="config.titles.otherImages" />
+      <TitleComponent :title="titles.otherImages" />
 
       <ImageMasonry />
     </SectionComponent>
 
     <!-- Nsfw -->
     <SectionComponent>
-      <TitleComponent :title="config.titles.nsfwGallery" />
+      <TitleComponent :title="titles.nsfwGallery" />
 
       <NsfwGallery />
     </SectionComponent>
 
     <!-- Working Process -->
     <SectionComponent>
-      <TitleComponent :title="config.titles.work" />
+      <TitleComponent :title="titles.work" />
 
       <AboutWork />
     </SectionComponent>

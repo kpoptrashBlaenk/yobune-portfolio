@@ -6,20 +6,20 @@ import type { DialogId } from '~/types'
 const props = defineProps<{ id: DialogId }>()
 
 /* Constants */
-const config = useAppConfig()
-const dialog = useDialogStore()
+const { dialog } = useAppConfig()
+const { currentScene, onTypingDone, onTypingStart, stop, isTyping, next } = useDialogStore()
 
 /* Variables */
-const scene = config.dialog.scenes.find((scene) => scene.id === props.id)
+const scene = dialog.scenes.find((scene) => scene.id === props.id)
 const text = ref<string>(scene?.dialog ?? '')
 const { output, start } = useTypewriter(text)
-const isActive = computed<boolean>(() => dialog.currentScene?.id === props.id)
+const isActive = computed<boolean>(() => currentScene?.id === props.id)
 
 /* Watches */
 watch(isActive, (active) => {
   if (!active) return
-  dialog.onTypingStart()
-  start(() => dialog.onTypingDone())
+  onTypingStart()
+  start(() => onTypingDone())
 })
 </script>
 
@@ -30,7 +30,7 @@ watch(isActive, (active) => {
     <UCard v-if="scene && isActive" :id="scene.id" class="absolute w-1/3">
       <div class="flex items-center gap-4 h-24">
         <!-- Image -->
-        <ImageComponent :src="config.dialog.image" class="w-16 h-16" />
+        <ImageComponent :src="dialog.image" class="w-16 h-16" />
         <!-- Text -->
         <p>{{ output }}</p>
       </div>
@@ -39,11 +39,11 @@ watch(isActive, (active) => {
       <template #footer>
         <div class="flex justify-end gap-5 h-8">
           <!-- Action Button -->
-          <UButton v-if="!dialog.isTyping" variant="outline" @click="dialog.stop">
-            {{ config.dialog.disableActionLabel }}
+          <UButton v-if="!isTyping" variant="outline" @click="stop">
+            {{ dialog.disableActionLabel }}
           </UButton>
-          <UButton v-if="!dialog.isTyping" @click="dialog.next">
-            {{ scene.actionLabel ?? config.dialog.defaultActionLabel }}
+          <UButton v-if="!isTyping" @click="next">
+            {{ scene.actionLabel ?? dialog.defaultActionLabel }}
           </UButton>
         </div>
       </template>

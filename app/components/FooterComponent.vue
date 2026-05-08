@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* Constants */
-const config = useAppConfig()
+const { header, footer } = useAppConfig()
 </script>
 
 <template>
@@ -12,16 +12,16 @@ const config = useAppConfig()
   >
     <template #left>
       <!-- Ownership -->
-      <p>{{ config.footer.ownership }}</p>
+      <p>{{ footer.ownership }}</p>
     </template>
 
     <!-- Socials -->
-    <UNavigationMenu :items="config.header.navigationMenuItems" variant="link" />
+    <UNavigationMenu :items="header.navigationMenuItems" variant="link" />
 
     <template #right>
       <!-- Contact -->
       <p>
-        {{ config.footer.contact }}
+        {{ footer.contact }}
       </p>
     </template>
 
@@ -36,7 +36,7 @@ const config = useAppConfig()
           icon="i-simple-icons-github"
           color="neutral"
           variant="ghost"
-          :to="config.footer.credit"
+          :to="footer.credit"
           target="_blank"
           class="-ml-1"
         />

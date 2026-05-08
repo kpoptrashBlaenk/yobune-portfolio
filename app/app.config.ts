@@ -4,6 +4,7 @@ import {
   type AnimationsConfig,
   type BannersConfig,
   type CharacterSheetsConfig,
+  type CursorConfig,
   type DialogConfig,
   type FooterConfig,
   type HeaderConfig,
@@ -20,6 +21,15 @@ export default defineAppConfig({
       neutral: 'zinc'
     }
   },
+
+  /* Cursor */
+  cursor: {
+    className: 'fancy-cursor',
+    storageKey: 'blaenk-fancy-cursor',
+    default: true,
+    trueLabel: 'Cursor: Fancy',
+    falseLabel: 'Cursor: Boring'
+  } as CursorConfig,
 
   /* Titles */
   titles: {
@@ -100,15 +110,7 @@ export default defineAppConfig({
         to: 'https://www.instagram.com/yobune.art/',
         target: '_blank'
       }
-    ] as NavigationMenuItem[],
-
-    cursor: {
-      className: 'fancy-cursor',
-      storageKey: 'blaenk-fancy-cursor',
-      default: true,
-      trueLabel: 'Cursor: Fancy',
-      falseLabel: 'Cursor: Boring'
-    }
+    ] as NavigationMenuItem[]
   } as HeaderConfig,
 
   /* Hero */

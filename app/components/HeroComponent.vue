@@ -3,13 +3,13 @@
 import { DialogId } from '~/types'
 
 /* Constants */
-const config = useAppConfig()
+const { hero } = useAppConfig()
 </script>
 
 <template>
   <div class="relative">
     <!-- Hero Image -->
-    <ImageComponent class="w-full rounded-4xl!" :src="config.hero.image" />
+    <ImageComponent class="w-full rounded-4xl!" :src="hero.image" />
 
     <!-- Dialogs -->
     <DialogComponent :id="DialogId.Intro" class="top-0 translate-y-1/2 left-5" />

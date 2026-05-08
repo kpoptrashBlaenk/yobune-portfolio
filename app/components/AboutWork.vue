@@ -3,7 +3,7 @@
 import { DialogId } from '~/types'
 
 /* Constants */
-const config = useAppConfig()
+const { work } = useAppConfig()
 </script>
 
 <template>
@@ -13,9 +13,9 @@ const config = useAppConfig()
 
     <!-- Timelapse -->
     <div>
-      <TitleComponent :title="config.work.timelapse.title" secondary />
+      <TitleComponent :title="work.timelapse.title" secondary />
       <video
-        :src="config.work.timelapse.video"
+        :src="work.timelapse.video"
         class="w-full rounded-xl"
         autoplay
         controls
@@ -28,15 +28,15 @@ const config = useAppConfig()
 
     <!-- Quality Comparison -->
     <div>
-      <TitleComponent :title="config.work.quality.title" secondary />
-      <ComparisonComponent :image-a="config.work.quality.low" :image-b="config.work.quality.high" />
+      <TitleComponent :title="work.quality.title" secondary />
+      <ComparisonComponent :image-a="work.quality.low" :image-b="work.quality.high" />
     </div>
 
     <!-- Work Process -->
     <div class="col-span-2">
-      <TitleComponent :title="config.work.process.title" secondary />
+      <TitleComponent :title="work.process.title" secondary />
       <div class="flex gap-5 items-center">
-        <template v-for="(item, key) in config.work.process.items" :key>
+        <template v-for="(item, key) in work.process.items" :key>
           <UIcon v-if="key > 0" name="material-symbols:chevron-right" class="shrink-0 size-20" />
 
           <div class="relative flex-1 min-w-0">
