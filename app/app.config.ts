@@ -104,7 +104,7 @@ export default defineAppConfig({
 
     cursor: {
       className: 'fancy-cursor',
-      storageKey: 'blaenk-cursor-mode',
+      storageKey: 'blaenk-fancy-cursor',
       default: true,
       trueLabel: 'Cursor: Fancy',
       falseLabel: 'Cursor: Boring'
