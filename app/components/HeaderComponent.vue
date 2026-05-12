@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { CURSOR_CONFIG, DIALOG_CONFIG, NSFW_CONFIG, SOCIALS, TITLES } from '~/constants'
+
 /* Constants */
-const { header, nsfw, titles, cursor, dialog } = useAppConfig()
 const settingsStore = useSettingsStore()
 const { reset } = useDialogStore()
 </script>
@@ -8,10 +9,10 @@ const { reset } = useDialogStore()
 <template>
   <UHeader :ui="{ title: 'text-secondary' }">
     <!-- Title -->
-    <template #title> {{ titles.main }} </template>
+    <template #title> {{ TITLES.main }} </template>
 
     <!-- Links -->
-    <UNavigationMenu :items="header.navigationMenuItems" />
+    <UNavigationMenu :items="SOCIALS" />
 
     <!-- Right Side -->
     <template #right>
@@ -20,16 +21,16 @@ const { reset } = useDialogStore()
 
       <!-- Cursor Mode -->
       <UButton variant="ghost" size="md" color="neutral" @click="settingsStore.toggleCursor">
-        {{ settingsStore.cursor ? cursor.trueLabel : cursor.falseLabel }}
+        {{ settingsStore.cursor ? CURSOR_CONFIG.trueLabel : CURSOR_CONFIG.falseLabel }}
       </UButton>
 
       <!-- Reset Dialog -->
       <UButton size="md" @click="reset">
-        {{ dialog.resetLabel }}
+        {{ DIALOG_CONFIG.resetLabel }}
       </UButton>
 
       <!-- NSFW Switch -->
-      <USwitch v-model="settingsStore.nsfw" :label="nsfw.label" />
+      <USwitch v-model="settingsStore.nsfw" :label="NSFW_CONFIG.label" />
     </template>
   </UHeader>
 </template>

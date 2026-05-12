@@ -1,9 +1,8 @@
 <script setup lang="ts">
 /* Imports */
-import { DialogId } from '~/types'
+import { DialogId, NSFW_IMAGES } from '~/constants'
 
 /* Constants */
-const { nsfw } = useAppConfig()
 const settingsStore = useSettingsStore()
 </script>
 
@@ -15,7 +14,7 @@ const settingsStore = useSettingsStore()
     <!-- Nsfw Gallery -->
     <div class="flex gap-4 overflow-x-auto pb-4 h-96 rounded-xl">
       <ImageComponent
-        v-for="(image, key) in nsfw.images"
+        v-for="(image, key) in NSFW_IMAGES"
         :key
         :src="image"
         class="transition"

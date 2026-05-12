@@ -1,6 +1,6 @@
 <script setup lang="ts">
-/* Constants */
-const { header, footer } = useAppConfig()
+/* Imports */
+import { FOOTER_CONFIG, SOCIALS } from '~/constants'
 </script>
 
 <template>
@@ -12,16 +12,16 @@ const { header, footer } = useAppConfig()
   >
     <template #left>
       <!-- Ownership -->
-      <p>{{ footer.ownership }}</p>
+      <p>{{ FOOTER_CONFIG.ownership }}</p>
     </template>
 
     <!-- Socials -->
-    <UNavigationMenu :items="header.navigationMenuItems" variant="link" />
+    <UNavigationMenu :items="SOCIALS" variant="link" />
 
     <template #right>
       <!-- Contact -->
       <p>
-        {{ footer.contact }}
+        {{ FOOTER_CONFIG.contact }}
       </p>
     </template>
 
@@ -36,7 +36,7 @@ const { header, footer } = useAppConfig()
           icon="i-simple-icons-github"
           color="neutral"
           variant="ghost"
-          :to="footer.credit"
+          :to="FOOTER_CONFIG.credit"
           target="_blank"
           class="-ml-1"
         />

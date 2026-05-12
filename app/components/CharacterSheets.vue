@@ -1,10 +1,6 @@
 <script setup lang="ts">
 /* Imports */
-import { DialogId } from '~/types'
-
-/* Constants */
-const { sheets } = useAppConfig()
-const characterSheets = sheets.sheets
+import { CHARACTER_SHEETS, DialogId } from '~/constants'
 
 /* Refs */
 const selectedKey = ref(0)
@@ -21,7 +17,7 @@ const selectedKey = ref(0)
       <Transition name="fade-scale" mode="out-in">
         <ImageComponent
           :key="selectedKey"
-          :src="characterSheets[selectedKey]!"
+          :src="CHARACTER_SHEETS[selectedKey]!"
           class="max-w-full max-h-full"
         />
       </Transition>
@@ -33,7 +29,7 @@ const selectedKey = ref(0)
       <div class="grid grid-cols-3 gap-2">
         <!-- Sheet Image -->
         <div
-          v-for="(sheet, key) in characterSheets"
+          v-for="(sheet, key) in CHARACTER_SHEETS"
           :key
           class="relative cursor-pointer overflow-hidden rounded-xl"
           :class="

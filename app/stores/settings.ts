@@ -1,16 +1,14 @@
-export const useSettingsStore = defineStore('settingsStore', () => {
-  /* Constants */
-  const config = useAppConfig()
-  const cursorConfig = config.cursor
+import { CURSOR_CONFIG, NSFW_CONFIG } from '~/constants'
 
+export const useSettingsStore = defineStore('settingsStore', () => {
   /* Refs */
   const cursor = ref<boolean>()
-  const nsfw = ref<boolean>(config.nsfw.default)
+  const nsfw = ref<boolean>(NSFW_CONFIG.default)
 
   /* Lifecycle Hooks */
   onNuxtReady(() => {
     cursor.value = !(
-      (localStorage.getItem(cursorConfig.storageKey) ?? String(cursorConfig.default)) === 'true'
+      (localStorage.getItem(CURSOR_CONFIG.storageKey) ?? String(CURSOR_CONFIG.default)) === 'true'
     )
     toggleCursor()
   })
@@ -18,19 +16,18 @@ export const useSettingsStore = defineStore('settingsStore', () => {
   /* Functions */
   function toggleCursor() {
     cursor.value = !cursor.value
-    localStorage.setItem(cursorConfig.storageKey, String(cursor.value))
+    localStorage.setItem(CURSOR_CONFIG.storageKey, String(cursor.value))
 
     if (cursor.value) {
-      document.body.classList.add(cursorConfig.className)
+      document.body.classList.add(CURSOR_CONFIG.className)
     } else {
-      document.body.classList.remove(cursorConfig.className)
+      document.body.classList.remove(CURSOR_CONFIG.className)
     }
   }
 
   /* Return */
   return {
     cursor,
-    cursorConfig,
     nsfw,
     toggleCursor
   }

@@ -1,10 +1,7 @@
 <script setup lang="ts">
 /* Imports */
-import { DialogId } from '~/types'
+import { ANIMATIONS, DialogId } from '~/constants'
 import DialogComponent from './DialogComponent.vue'
-
-/* Constants */
-const { animations } = useAppConfig()
 </script>
 
 <template>
@@ -14,7 +11,7 @@ const { animations } = useAppConfig()
 
     <!-- Masonry Grid -->
     <div class="columns-3 gap-2">
-      <div v-for="(animation, key) in animations.animations" :key="key" class="mb-2">
+      <div v-for="(animation, key) in ANIMATIONS" :key="key" class="mb-2">
         <ImageComponent :src="animation" />
       </div>
     </div>

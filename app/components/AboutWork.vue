@@ -1,9 +1,6 @@
 <script setup lang="ts">
 /* Imports */
-import { DialogId } from '~/types'
-
-/* Constants */
-const { work } = useAppConfig()
+import { DialogId, WORK_CONFIG } from '~/constants'
 </script>
 
 <template>
@@ -13,9 +10,9 @@ const { work } = useAppConfig()
 
     <!-- Timelapse -->
     <div>
-      <TitleComponent :title="work.timelapse.title" secondary />
+      <TitleComponent :title="WORK_CONFIG.timelapse.title" secondary />
       <video
-        :src="work.timelapse.video"
+        :src="WORK_CONFIG.timelapse.video"
         class="w-full rounded-xl"
         autoplay
         controls
@@ -28,15 +25,15 @@ const { work } = useAppConfig()
 
     <!-- Quality Comparison -->
     <div>
-      <TitleComponent :title="work.quality.title" secondary />
-      <ComparisonComponent :image-a="work.quality.low" :image-b="work.quality.high" />
+      <TitleComponent :title="WORK_CONFIG.quality.title" secondary />
+      <ComparisonComponent :image-a="WORK_CONFIG.quality.low" :image-b="WORK_CONFIG.quality.high" />
     </div>
 
     <!-- Work Process -->
     <div class="col-span-2">
-      <TitleComponent :title="work.process.title" secondary />
+      <TitleComponent :title="WORK_CONFIG.process.title" secondary />
       <div class="flex gap-5 items-center">
-        <template v-for="(item, key) in work.process.items" :key>
+        <template v-for="(item, key) in WORK_CONFIG.process.items" :key>
           <UIcon v-if="key > 0" name="material-symbols:chevron-right" class="shrink-0 size-20" />
 
           <div class="relative flex-1 min-w-0">

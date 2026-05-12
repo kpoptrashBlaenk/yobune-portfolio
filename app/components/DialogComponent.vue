@@ -1,16 +1,15 @@
 <script setup lang="ts">
 /* Imports */
-import type { DialogId } from '~/types'
+import { DIALOG_CONFIG, type DialogId, DIALOGS } from '~/constants'
 
 /* Props */
 const props = defineProps<{ id: DialogId }>()
 
 /* Constants */
-const { dialog } = useAppConfig()
 const dialogStore = useDialogStore()
 
 /* Variables */
-const scene = dialog.scenes.find((scene) => scene.id === props.id)
+const scene = DIALOGS.find((scene) => scene.id === props.id)
 const text = ref<string>(scene?.dialog ?? '')
 const { output, start } = useTypewriter(text)
 const isActive = computed<boolean>(() => dialogStore.currentScene?.id === props.id)
@@ -30,7 +29,7 @@ watch(isActive, (active) => {
     <UCard v-if="scene && isActive" :id="scene.id" class="absolute w-1/3 z-50">
       <div class="flex items-center gap-4 h-24">
         <!-- Image -->
-        <ImageComponent :src="dialog.image" class="w-16 h-16" />
+        <ImageComponent :src="DIALOG_CONFIG.image" class="w-16 h-16" />
         <!-- Text -->
         <p>{{ output }}</p>
       </div>
@@ -40,10 +39,10 @@ watch(isActive, (active) => {
         <div class="flex justify-end gap-5 h-8">
           <!-- Action Button -->
           <UButton v-if="!dialogStore.isTyping" variant="outline" @click="dialogStore.stop">
-            {{ dialog.disableActionLabel }}
+            {{ DIALOG_CONFIG.disableActionLabel }}
           </UButton>
           <UButton v-if="!dialogStore.isTyping" @click="dialogStore.next">
-            {{ scene.actionLabel ?? dialog.defaultActionLabel }}
+            {{ scene.actionLabel ?? DIALOG_CONFIG.defaultActionLabel }}
           </UButton>
         </div>
       </template>

@@ -8,6 +8,7 @@ export default withNuxt({
     'vue/html-self-closing': 'off',
     'vue/operator-linebreak': 'off',
     '@stylistic/quotes': 'off',
-    '@stylistic/arrow-parens': 'off'
+    '@stylistic/arrow-parens': 'off',
+    '@stylistic/operator-linebreak': 'off'
   }
 })

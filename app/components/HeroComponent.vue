@@ -1,15 +1,12 @@
 <script setup lang="ts">
 /* Imports */
-import { DialogId } from '~/types'
-
-/* Constants */
-const { hero } = useAppConfig()
+import { DialogId, HERO } from '~/constants'
 </script>
 
 <template>
   <div class="relative">
     <!-- Hero Image -->
-    <ImageComponent class="w-full rounded-4xl!" :src="hero.image" />
+    <ImageComponent class="w-full rounded-4xl!" :src="HERO" />
 
     <!-- Dialogs -->
     <DialogComponent :id="DialogId.Intro" class="top-0 translate-y-1/2 left-5" />
