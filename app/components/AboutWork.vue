@@ -41,7 +41,9 @@ const { work } = useAppConfig()
 
           <div class="relative flex-1 min-w-0">
             <ImageComponent :src="item.image" class="w-full h-auto" />
-            <div class="absolute bottom-0 py-1 px-3 bg-black/75 w-full rounded-b-xl text-neutral-200">
+            <div
+              class="absolute bottom-0 py-1 px-3 bg-black/75 w-full rounded-b-xl text-neutral-200"
+            >
               {{ item.title }}
             </div>
           </div>
