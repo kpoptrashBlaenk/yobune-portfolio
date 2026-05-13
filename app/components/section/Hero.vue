@@ -9,7 +9,7 @@ import { DialogId, HERO } from '~/constants'
     <UiImage class="w-full rounded-4xl!" :src="HERO" />
 
     <!-- Dialogs -->
-    <UiDialog :id="DialogId.Intro" class="top-0 translate-y-1/2 left-5" />
-    <UiDialog :id="DialogId.End" class="top-0 translate-y-1/2 left-5" />
+    <LazyUiDialog :id="DialogId.Intro" class="top-0 translate-y-1/2 left-5" />
+    <LazyUiDialog :id="DialogId.End" class="top-0 translate-y-1/2 left-5" />
   </div>
 </template>

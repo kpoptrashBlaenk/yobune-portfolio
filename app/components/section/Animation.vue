@@ -6,7 +6,7 @@ import { ANIMATIONS, DialogId } from '~/constants'
 <template>
   <div class="relative">
     <!-- Dialog -->
-    <UiDialog :id="DialogId.Animations" class="top-10 left-10 z-50" />
+    <LazyUiDialog :id="DialogId.Animations" class="top-10 left-10 z-50" />
 
     <!-- Masonry Grid -->
     <UiMasonryGrid :items="ANIMATIONS" :columns="3" />

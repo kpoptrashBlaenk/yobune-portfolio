@@ -5,7 +5,7 @@ import { TITLES } from '~/constants'
 
 <template>
   <div>
-    <UiLightboxModal />
+    <LazyUiLightboxModal />
 
     <!-- Hero -->
     <UiReveal>
@@ -14,44 +14,44 @@ import { TITLES } from '~/constants'
 
     <!-- Banners -->
     <UiReveal>
-      <UiTitle :title="TITLES.animatedBanners" />
+      <LazyUiTitle :title="TITLES.animatedBanners" />
 
-      <SectionBanner />
+      <LazySectionBanner />
     </UiReveal>
 
     <!-- Animations -->
     <UiReveal>
-      <UiTitle :title="TITLES.ohterAnimations" />
+      <LazyUiTitle :title="TITLES.ohterAnimations" />
 
-      <SectionAnimation />
+      <LazySectionAnimation />
     </UiReveal>
 
     <!-- Character Sheets -->
     <UiReveal>
-      <UiTitle :title="TITLES.characterSheets" />
+      <LazyUiTitle :title="TITLES.characterSheets" />
 
-      <SectionCharacterSheets />
+      <LazySectionCharacterSheets />
     </UiReveal>
 
     <!-- Other Images -->
     <UiReveal>
-      <UiTitle :title="TITLES.otherImages" />
+      <LazyUiTitle :title="TITLES.otherImages" />
 
-      <SectionImage />
+      <LazySectionImage />
     </UiReveal>
 
     <!-- Nsfw -->
     <UiReveal>
-      <UiTitle :title="TITLES.nsfwGallery" />
+      <LazyUiTitle :title="TITLES.nsfwGallery" />
 
-      <SectionNsfw />
+      <LazySectionNsfw />
     </UiReveal>
 
     <!-- Working Process -->
     <UiReveal>
-      <UiTitle :title="TITLES.work" />
+      <LazyUiTitle :title="TITLES.work" />
 
-      <SectionWork />
+      <LazySectionWork />
     </UiReveal>
 
     <USeparator class="mt-10" />

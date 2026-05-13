@@ -9,7 +9,7 @@ const settingsStore = useSettingsStore()
 <template>
   <div class="relative">
     <!-- Dialog -->
-    <UiDialog :id="DialogId.Nsfw" class="top-5 left-5 z-50" />
+    <LazyUiDialog :id="DialogId.Nsfw" class="top-5 left-5 z-50" />
 
     <!-- Nsfw Gallery -->
     <div class="flex gap-4 overflow-x-auto pb-4 h-96 rounded-xl">

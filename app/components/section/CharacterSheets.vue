@@ -6,7 +6,7 @@ import { CHARACTER_SHEETS, DialogId } from '~/constants'
 <template>
   <div class="relative">
     <!-- Dialog -->
-    <UiDialog :id="DialogId.Characters" class="top-0 left-5" />
+    <LazyUiDialog :id="DialogId.Characters" class="top-0 left-5" />
 
     <!-- Gallery -->
     <UiPreviewGallery :items="CHARACTER_SHEETS" />
