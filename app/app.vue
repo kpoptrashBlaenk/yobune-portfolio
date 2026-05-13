@@ -1,4 +1,7 @@
 <script setup>
+/* Imports */
+import { DIALOG_CONFIG } from './constants'
+
 /* Head */
 useHead({
   meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
@@ -10,11 +13,10 @@ useHead({
 
 /* Constants */
 const dialog = useDialogStore()
-const config = useAppConfig()
 
 /* Lifecycle Hooks */
 onNuxtReady(() => {
-  if (!localStorage.getItem(config.dialog.storageKey)) dialog.next()
+  if (!localStorage.getItem(DIALOG_CONFIG.storageKey)) dialog.next()
 })
 </script>
 

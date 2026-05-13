@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* Imports */
-import { DialogId } from '~/constants'
+import { CHARACTER_SHEETS, DialogId } from '~/constants'
 </script>
 
 <template>
@@ -9,6 +9,6 @@ import { DialogId } from '~/constants'
     <UiDialog :id="DialogId.Characters" class="top-0 left-5" />
 
     <!-- Gallery -->
-    <UiPreviewGallery />
+    <UiPreviewGallery :items="CHARACTER_SHEETS" />
   </div>
 </template>
