@@ -1,58 +1,58 @@
 <script setup lang="ts">
-/* Constants */
-const { titles } = useAppConfig()
+/* Imports */
+import { TITLES } from '~/constants'
 </script>
 
 <template>
   <div>
-    <LightboxModal />
+    <LazyUiLightboxModal />
 
     <!-- Hero -->
-    <SectionComponent>
-      <HeroComponent class="mt-10" />
-    </SectionComponent>
+    <UiReveal>
+      <SectionHero class="mt-10" />
+    </UiReveal>
 
     <!-- Banners -->
-    <SectionComponent>
-      <TitleComponent :title="titles.animatedBanners" />
+    <UiReveal>
+      <LazyUiTitle :title="TITLES.animatedBanners" />
 
-      <BannerGallery />
-    </SectionComponent>
+      <LazySectionBanner />
+    </UiReveal>
 
     <!-- Animations -->
-    <SectionComponent>
-      <TitleComponent :title="titles.ohterAnimations" />
+    <UiReveal>
+      <LazyUiTitle :title="TITLES.ohterAnimations" />
 
-      <AnimationMasonry />
-    </SectionComponent>
+      <LazySectionAnimation />
+    </UiReveal>
 
     <!-- Character Sheets -->
-    <SectionComponent>
-      <TitleComponent :title="titles.characterSheets" />
+    <UiReveal>
+      <LazyUiTitle :title="TITLES.characterSheets" />
 
-      <CharacterSheets />
-    </SectionComponent>
+      <LazySectionCharacterSheets />
+    </UiReveal>
 
     <!-- Other Images -->
-    <SectionComponent>
-      <TitleComponent :title="titles.otherImages" />
+    <UiReveal>
+      <LazyUiTitle :title="TITLES.otherImages" />
 
-      <ImageMasonry />
-    </SectionComponent>
+      <LazySectionImage />
+    </UiReveal>
 
     <!-- Nsfw -->
-    <SectionComponent>
-      <TitleComponent :title="titles.nsfwGallery" />
+    <UiReveal>
+      <LazyUiTitle :title="TITLES.nsfwGallery" />
 
-      <NsfwGallery />
-    </SectionComponent>
+      <LazySectionNsfw />
+    </UiReveal>
 
     <!-- Working Process -->
-    <SectionComponent>
-      <TitleComponent :title="titles.work" />
+    <UiReveal>
+      <LazyUiTitle :title="TITLES.work" />
 
-      <AboutWork />
-    </SectionComponent>
+      <LazySectionWork />
+    </UiReveal>
 
     <USeparator class="mt-10" />
   </div>

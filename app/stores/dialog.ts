@@ -1,30 +1,26 @@
-import type { DialogRecord } from '~/types'
+import { DIALOG_CONFIG, DIALOGS, type DialogRecord } from '~/constants'
 
 export const useDialogStore = defineStore('dialog', () => {
-  /* Constants */
-  const config = useAppConfig()
-  const scenes = config.dialog.scenes
-
   /* Refs */
-  const index = ref(-1)
+  const dialogIndex = ref(-1)
   const isTyping = ref(false)
 
   /* Computeds */
-  const currentScene = computed<DialogRecord | null>(() => scenes[index.value] ?? null)
+  const currentDialog = computed<DialogRecord | null>(() => DIALOGS[dialogIndex.value] ?? null)
 
   /* Functions */
   async function next() {
     if (isTyping.value) return
 
     // check if last
-    if (index.value >= scenes.length - 1) {
+    if (dialogIndex.value >= DIALOGS.length - 1) {
       stop()
       return
     }
 
     // set next scene
-    index.value++
-    const scene = currentScene.value
+    dialogIndex.value++
+    const scene = currentDialog.value
     if (!scene) return
 
     // scroll to card
@@ -36,14 +32,14 @@ export const useDialogStore = defineStore('dialog', () => {
   }
 
   function stop() {
-    index.value = -1
-    localStorage.setItem(config.dialog.storageKey, 'false')
+    dialogIndex.value = -1
+    localStorage.setItem(DIALOG_CONFIG.storageKey, 'false')
     return
   }
 
   function reset() {
     stop()
-    localStorage.removeItem(config.dialog.storageKey)
+    localStorage.removeItem(DIALOG_CONFIG.storageKey)
     next()
   }
 
@@ -59,9 +55,9 @@ export const useDialogStore = defineStore('dialog', () => {
 
   /* Return */
   return {
-    index,
+    dialogIndex,
     isTyping,
-    currentScene,
+    currentDialog,
     next,
     stop,
     reset,

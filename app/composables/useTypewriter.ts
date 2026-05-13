@@ -1,10 +1,11 @@
+import { DIALOG_CONFIG } from '~/constants'
+
 /**
  * Displays text in typewriter style. For speed settings, look up app.dialog.speed.
  *
  * @param text Text to display
  */
 export function useTypewriter(text: Ref<string>) {
-  const { dialog } = useAppConfig()
   const output = ref('')
 
   let i = 0
@@ -30,7 +31,7 @@ export function useTypewriter(text: Ref<string>) {
         stop()
         onDone?.()
       }
-    }, dialog.speed)
+    }, DIALOG_CONFIG.speed)
   }
 
   onBeforeUnmount(stop)
