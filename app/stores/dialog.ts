@@ -2,25 +2,25 @@ import { DIALOG_CONFIG, DIALOGS, type DialogRecord } from '~/constants'
 
 export const useDialogStore = defineStore('dialog', () => {
   /* Refs */
-  const index = ref(-1)
+  const dialogIndex = ref(-1)
   const isTyping = ref(false)
 
   /* Computeds */
-  const currentScene = computed<DialogRecord | null>(() => DIALOGS[index.value] ?? null)
+  const currentDialog = computed<DialogRecord | null>(() => DIALOGS[dialogIndex.value] ?? null)
 
   /* Functions */
   async function next() {
     if (isTyping.value) return
 
     // check if last
-    if (index.value >= DIALOGS.length - 1) {
+    if (dialogIndex.value >= DIALOGS.length - 1) {
       stop()
       return
     }
 
     // set next scene
-    index.value++
-    const scene = currentScene.value
+    dialogIndex.value++
+    const scene = currentDialog.value
     if (!scene) return
 
     // scroll to card
@@ -32,7 +32,7 @@ export const useDialogStore = defineStore('dialog', () => {
   }
 
   function stop() {
-    index.value = -1
+    dialogIndex.value = -1
     localStorage.setItem(DIALOG_CONFIG.storageKey, 'false')
     return
   }
@@ -55,9 +55,9 @@ export const useDialogStore = defineStore('dialog', () => {
 
   /* Return */
   return {
-    index,
+    dialogIndex,
     isTyping,
-    currentScene,
+    currentDialog,
     next,
     stop,
     reset,
