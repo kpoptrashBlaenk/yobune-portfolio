@@ -9,10 +9,6 @@ import { ANIMATIONS, DialogId } from '~/constants'
     <UiDialog :id="DialogId.Animations" class="top-10 left-10 z-50" />
 
     <!-- Masonry Grid -->
-    <div class="columns-3 gap-2">
-      <div v-for="(animation, key) in ANIMATIONS" :key="key" class="mb-2">
-        <UiImage :src="animation" />
-      </div>
-    </div>
+    <UiMasonryGrid :items="ANIMATIONS" :columns="3" />
   </div>
 </template>

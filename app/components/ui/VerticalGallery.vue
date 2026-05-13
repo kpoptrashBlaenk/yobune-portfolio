@@ -1,6 +1,8 @@
 <script setup lang="ts">
-/* Imports */
-import { BANNERS, DialogId } from '~/constants'
+/* Props */
+const props = defineProps<{
+  items: string[]
+}>()
 
 /* Refs */
 const current = ref(0)
@@ -8,17 +10,17 @@ const current = ref(0)
 /* Functions */
 function getOffset(i: number) {
   let diff = i - current.value
-  if (diff > BANNERS.length / 2) diff -= BANNERS.length
-  if (diff < -BANNERS.length / 2) diff += BANNERS.length
+  if (diff > props.items.length / 2) diff -= props.items.length
+  if (diff < -props.items.length / 2) diff += props.items.length
   return diff
 }
 
 function prev() {
-  current.value = (current.value - 1 + BANNERS.length) % BANNERS.length
+  current.value = (current.value - 1 + props.items.length) % props.items.length
 }
 
 function next() {
-  current.value = (current.value + 1) % BANNERS.length
+  current.value = (current.value + 1) % props.items.length
 }
 </script>
 
@@ -28,13 +30,10 @@ function next() {
     <UButton icon="i-lucide-chevron-up" size="xl" data-testid="btn-prev" @click="prev" />
 
     <!-- Carousel -->
-    <div class="relative flex-1 h-125 overflow-hidden flex items-center justify-center">
-      <!-- Dialog -->
-      <UiDialog :id="DialogId.Banners" class="absolute top-1/2 -translate-y-1/2 left-10 z-50" />
-
+    <div class="flex-1 h-125 overflow-hidden flex items-center justify-center">
       <!-- Sliders -->
       <div
-        v-for="(img, i) in BANNERS"
+        v-for="(img, i) in items"
         :key="i"
         class="absolute w-full transition-all duration-500 ease-in-out"
         :class="{

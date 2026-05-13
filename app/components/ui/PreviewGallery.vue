@@ -1,35 +1,30 @@
 <script setup lang="ts">
-/* Imports */
-import { CHARACTER_SHEETS, DialogId } from '~/constants'
+/* Props */
+defineProps<{
+  items: string[]
+}>()
 
 /* Refs */
 const selectedKey = ref(0)
 </script>
 
 <template>
-  <div class="relative flex gap-5 items-center h-[46vw]">
-    <!-- Dialog -->
-    <UiDialog :id="DialogId.Characters" class="top-0 left-5" />
-
+  <div class="flex gap-5 items-center h-[46vw]">
     <!-- Left -->
     <div class="w-1/2 flex items-center justify-center h-full">
-      <!-- Selected Sheet -->
+      <!-- Selected Item -->
       <Transition name="fade-scale" mode="out-in">
-        <UiImage
-          :key="selectedKey"
-          :src="CHARACTER_SHEETS[selectedKey]!"
-          class="max-w-full max-h-full"
-        />
+        <UiImage :key="selectedKey" :src="items[selectedKey]!" class="max-w-full max-h-full" />
       </Transition>
     </div>
 
     <!-- Right -->
     <div class="w-1/2 pl-1 pr-4">
-      <!-- Sheet Grid -->
+      <!-- Grid -->
       <div class="grid grid-cols-3 gap-2">
-        <!-- Sheet Image -->
+        <!-- Image -->
         <div
-          v-for="(sheet, key) in CHARACTER_SHEETS"
+          v-for="(sheet, key) in items"
           :key
           class="relative cursor-pointer overflow-hidden rounded-xl"
           :class="

@@ -16,35 +16,35 @@ import { TITLES } from '~/constants'
     <UiReveal>
       <UiTitle :title="TITLES.animatedBanners" />
 
-      <GalleryBanner />
+      <SectionBanner />
     </UiReveal>
 
     <!-- Animations -->
     <UiReveal>
       <UiTitle :title="TITLES.ohterAnimations" />
 
-      <GalleryAnimation />
+      <SectionAnimation />
     </UiReveal>
 
     <!-- Character Sheets -->
     <UiReveal>
       <UiTitle :title="TITLES.characterSheets" />
 
-      <GalleryCharacterSheets />
+      <SectionCharacterSheets />
     </UiReveal>
 
     <!-- Other Images -->
     <UiReveal>
       <UiTitle :title="TITLES.otherImages" />
 
-      <GalleryImage />
+      <SectionImage />
     </UiReveal>
 
     <!-- Nsfw -->
     <UiReveal>
       <UiTitle :title="TITLES.nsfwGallery" />
 
-      <GalleryNsfw />
+      <SectionNsfw />
     </UiReveal>
 
     <!-- Working Process -->
