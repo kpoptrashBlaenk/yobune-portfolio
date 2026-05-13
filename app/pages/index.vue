@@ -8,51 +8,51 @@ import { TITLES } from '~/constants'
     <LightboxModal />
 
     <!-- Hero -->
-    <SectionComponent>
-      <HeroComponent class="mt-10" />
-    </SectionComponent>
+    <SectionReveal>
+      <HeroSection class="mt-10" />
+    </SectionReveal>
 
     <!-- Banners -->
-    <SectionComponent>
-      <TitleComponent :title="TITLES.animatedBanners" />
+    <SectionReveal>
+      <SectionTitle :title="TITLES.animatedBanners" />
 
       <BannerGallery />
-    </SectionComponent>
+    </SectionReveal>
 
     <!-- Animations -->
-    <SectionComponent>
-      <TitleComponent :title="TITLES.ohterAnimations" />
+    <SectionReveal>
+      <SectionTitle :title="TITLES.ohterAnimations" />
 
-      <AnimationMasonry />
-    </SectionComponent>
+      <AnimationGallery />
+    </SectionReveal>
 
     <!-- Character Sheets -->
-    <SectionComponent>
-      <TitleComponent :title="TITLES.characterSheets" />
+    <SectionReveal>
+      <SectionTitle :title="TITLES.characterSheets" />
 
       <CharacterSheets />
-    </SectionComponent>
+    </SectionReveal>
 
     <!-- Other Images -->
-    <SectionComponent>
-      <TitleComponent :title="TITLES.otherImages" />
+    <SectionReveal>
+      <SectionTitle :title="TITLES.otherImages" />
 
-      <ImageMasonry />
-    </SectionComponent>
+      <ImageGallery />
+    </SectionReveal>
 
     <!-- Nsfw -->
-    <SectionComponent>
-      <TitleComponent :title="TITLES.nsfwGallery" />
+    <SectionReveal>
+      <SectionTitle :title="TITLES.nsfwGallery" />
 
       <NsfwGallery />
-    </SectionComponent>
+    </SectionReveal>
 
     <!-- Working Process -->
-    <SectionComponent>
-      <TitleComponent :title="TITLES.work" />
+    <SectionReveal>
+      <SectionTitle :title="TITLES.work" />
 
-      <AboutWork />
-    </SectionComponent>
+      <WorkProcess />
+    </SectionReveal>
 
     <USeparator class="mt-10" />
   </div>

@@ -20,13 +20,13 @@ onNuxtReady(() => {
 
 <template>
   <UApp>
-    <HeaderComponent />
+    <AppHeader />
 
     <NuxtLayout>
-      <CursorComponent />
+      <AppCursor />
       <NuxtPage />
     </NuxtLayout>
 
-    <FooterComponent />
+    <AppFooter />
   </UApp>
 </template>
