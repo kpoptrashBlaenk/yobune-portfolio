@@ -2,26 +2,23 @@
 /* Imports */
 import { BANNERS, DialogId } from '~/constants'
 
-/* Constants */
-const total = BANNERS.length
-
 /* Refs */
 const current = ref(0)
 
 /* Functions */
 function getOffset(i: number) {
   let diff = i - current.value
-  if (diff > total / 2) diff -= total
-  if (diff < -total / 2) diff += total
+  if (diff > BANNERS.length / 2) diff -= BANNERS.length
+  if (diff < -BANNERS.length / 2) diff += BANNERS.length
   return diff
 }
 
 function prev() {
-  current.value = (current.value - 1 + total) % total
+  current.value = (current.value - 1 + BANNERS.length) % BANNERS.length
 }
 
 function next() {
-  current.value = (current.value + 1) % total
+  current.value = (current.value + 1) % BANNERS.length
 }
 </script>
 
