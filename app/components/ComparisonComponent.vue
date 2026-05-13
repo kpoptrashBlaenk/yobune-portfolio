@@ -56,6 +56,7 @@ onMounted(() => {
     ref="container"
     class="relative w-full overflow-hidden rounded-xl cursor-col-resize select-none"
     style="aspect-ratio: 16/9"
+    data-testid="container"
     @mousedown="startDrag"
     @touchstart.passive="startDragTouch"
   >
@@ -68,12 +69,14 @@ onMounted(() => {
       draggable="false"
       class="absolute inset-0 w-full h-full object-cover"
       :style="{ clipPath: `inset(0 ${100 - pos}% 0 0)` }"
+      data-testid="overlay"
     />
 
     <!-- Divider & Handle -->
     <div
       class="absolute top-0 bottom-0 w-0.5 bg-white -translate-x-1/2 pointer-events-none"
       :style="{ left: pos + '%' }"
+      data-testid="divider"
     >
       <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white flex items-center justify-center"

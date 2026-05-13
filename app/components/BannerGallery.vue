@@ -28,7 +28,7 @@ function next() {
 <template>
   <div class="flex items-center gap-4">
     <!-- Up Button -->
-    <UButton icon="i-lucide-chevron-up" size="xl" @click="prev" />
+    <UButton icon="i-lucide-chevron-up" size="xl" data-testid="btn-prev" @click="prev" />
 
     <!-- Carousel -->
     <div class="relative flex-1 h-125 overflow-hidden flex items-center justify-center">
@@ -52,6 +52,9 @@ function next() {
           opacity: Math.abs(getOffset(i)) > 1 ? 0 : Math.abs(getOffset(i)) === 1 ? 0.45 : 1,
           zIndex: 10 - Math.abs(getOffset(i)) * 5
         }"
+        data-testid="slide"
+        :data-index="i"
+        :data-offset="getOffset(i)"
       >
         <ImageComponent
           :src="img"
@@ -62,6 +65,6 @@ function next() {
     </div>
 
     <!-- Down Button -->
-    <UButton icon="i-lucide-chevron-down" size="xl" @click="next" />
+    <UButton icon="i-lucide-chevron-down" size="xl" data-testid="btn-next" @click="next" />
   </div>
 </template>
