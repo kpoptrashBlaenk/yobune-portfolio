@@ -12,7 +12,7 @@ const dialogStore = useDialogStore()
 const scene = DIALOGS.find((scene) => scene.id === props.id)
 const text = ref<string>(scene?.dialog ?? '')
 const { output, start } = useTypewriter(text)
-const isActive = computed<boolean>(() => dialogStore.currentScene?.id === props.id)
+const isActive = computed<boolean>(() => dialogStore.currentDialog?.id === props.id)
 
 /* Watches */
 watch(isActive, (active) => {

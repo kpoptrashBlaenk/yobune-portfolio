@@ -1,11 +1,27 @@
 <script setup lang="ts">
-/* Constants */
-const { element, isVisible } = useReveal()
+/* Refs */
+const sectionRef = useTemplateRef('sectionRef')
+const isVisible = ref(false)
+
+/* Lifecycle Hooks */
+onMounted(() =>
+  useIntersectionObserver(
+    sectionRef,
+    ([entry]) => {
+      if (entry?.isIntersecting) {
+        isVisible.value = true
+      }
+    },
+    {
+      threshold: 0.2
+    }
+  )
+)
 </script>
 
 <template>
   <section
-    ref="element"
+    ref="sectionRef"
     class="transition-all duration-1000 ease-out"
     :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
   >
