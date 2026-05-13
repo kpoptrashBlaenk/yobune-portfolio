@@ -1,21 +1,21 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { describe, expect, it, vi } from 'vitest'
-import ComparisonComponent from '~/components/ComparisonComponent.vue'
 import { WORK_CONFIG } from '~/constants'
+import ComparisonSlider from './../../app/components/ui/ComparisonSlider.vue'
 
 const PROPS = {
   imageA: WORK_CONFIG.quality.low,
   imageB: WORK_CONFIG.quality.high
 }
 
-describe('ComparisonComponent', async () => {
+describe('ComparisonSlider', async () => {
   it('renders the component', async () => {
-    const wrapper = await mountSuspended(ComparisonComponent, { props: PROPS })
+    const wrapper = await mountSuspended(ComparisonSlider, { props: PROPS })
     expect(wrapper.exists()).toBe(true)
   })
 
   it('renders both images', async () => {
-    const wrapper = await mountSuspended(ComparisonComponent, { props: PROPS })
+    const wrapper = await mountSuspended(ComparisonSlider, { props: PROPS })
     const imgs = wrapper.findAll('img')
     const srcs = imgs.map((i) => i.attributes('src'))
     expect(srcs).toContain(PROPS.imageA)
@@ -23,19 +23,19 @@ describe('ComparisonComponent', async () => {
   })
 
   it('divider starts at 50%', async () => {
-    const wrapper = await mountSuspended(ComparisonComponent, { props: PROPS })
+    const wrapper = await mountSuspended(ComparisonSlider, { props: PROPS })
     const divider = wrapper.find('[data-testid="divider"]')
     expect(divider.attributes('style')).toContain('left: 50%')
   })
 
   it('overlay image starts clipped at 50%', async () => {
-    const wrapper = await mountSuspended(ComparisonComponent, { props: PROPS })
+    const wrapper = await mountSuspended(ComparisonSlider, { props: PROPS })
     const overlay = wrapper.find('[data-testid="overlay"]')
     expect(overlay.attributes('style')).toContain('inset(0 50% 0 0)')
   })
 
   it('mousedown on the container sets dragging and updates position', async () => {
-    const wrapper = await mountSuspended(ComparisonComponent, { props: PROPS })
+    const wrapper = await mountSuspended(ComparisonSlider, { props: PROPS })
     const container = wrapper.find('[data-testid="container"]')
 
     // getBoundingClientRect is not available in happy-dom so we mock it

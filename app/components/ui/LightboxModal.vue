@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* Constants */
 const { isOpen, close, image } = useLightbox()
 </script>
 

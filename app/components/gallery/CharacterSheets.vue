@@ -9,13 +9,13 @@ const selectedKey = ref(0)
 <template>
   <div class="relative flex gap-5 items-center h-[46vw]">
     <!-- Dialog -->
-    <DialogBox :id="DialogId.Characters" class="top-0 left-5" />
+    <UiDialog :id="DialogId.Characters" class="top-0 left-5" />
 
     <!-- Left -->
     <div class="w-1/2 flex items-center justify-center h-full">
       <!-- Selected Sheet -->
       <Transition name="fade-scale" mode="out-in">
-        <AppImage
+        <UiImage
           :key="selectedKey"
           :src="CHARACTER_SHEETS[selectedKey]!"
           class="max-w-full max-h-full"

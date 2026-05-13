@@ -1,6 +1,6 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { describe, expect, it } from 'vitest'
-import BannerGallery from '~/components/BannerGallery.vue'
+import BannerGallery from '~/components/gallery/Banner.vue'
 import { BANNERS } from '~/constants'
 
 describe('BannerGallery', () => {

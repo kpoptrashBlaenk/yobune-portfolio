@@ -5,54 +5,54 @@ import { TITLES } from '~/constants'
 
 <template>
   <div>
-    <LightboxModal />
+    <UiLightboxModal />
 
     <!-- Hero -->
-    <SectionReveal>
-      <HeroSection class="mt-10" />
-    </SectionReveal>
+    <UiReveal>
+      <SectionHero class="mt-10" />
+    </UiReveal>
 
     <!-- Banners -->
-    <SectionReveal>
-      <SectionTitle :title="TITLES.animatedBanners" />
+    <UiReveal>
+      <UiTitle :title="TITLES.animatedBanners" />
 
-      <BannerGallery />
-    </SectionReveal>
+      <GalleryBanner />
+    </UiReveal>
 
     <!-- Animations -->
-    <SectionReveal>
-      <SectionTitle :title="TITLES.ohterAnimations" />
+    <UiReveal>
+      <UiTitle :title="TITLES.ohterAnimations" />
 
-      <AnimationGallery />
-    </SectionReveal>
+      <GalleryAnimation />
+    </UiReveal>
 
     <!-- Character Sheets -->
-    <SectionReveal>
-      <SectionTitle :title="TITLES.characterSheets" />
+    <UiReveal>
+      <UiTitle :title="TITLES.characterSheets" />
 
-      <CharacterSheets />
-    </SectionReveal>
+      <GalleryCharacterSheets />
+    </UiReveal>
 
     <!-- Other Images -->
-    <SectionReveal>
-      <SectionTitle :title="TITLES.otherImages" />
+    <UiReveal>
+      <UiTitle :title="TITLES.otherImages" />
 
-      <ImageGallery />
-    </SectionReveal>
+      <GalleryImage />
+    </UiReveal>
 
     <!-- Nsfw -->
-    <SectionReveal>
-      <SectionTitle :title="TITLES.nsfwGallery" />
+    <UiReveal>
+      <UiTitle :title="TITLES.nsfwGallery" />
 
-      <NsfwGallery />
-    </SectionReveal>
+      <GalleryNsfw />
+    </UiReveal>
 
     <!-- Working Process -->
-    <SectionReveal>
-      <SectionTitle :title="TITLES.work" />
+    <UiReveal>
+      <UiTitle :title="TITLES.work" />
 
-      <WorkProcess />
-    </SectionReveal>
+      <SectionWork />
+    </UiReveal>
 
     <USeparator class="mt-10" />
   </div>

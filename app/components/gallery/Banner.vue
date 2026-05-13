@@ -30,7 +30,7 @@ function next() {
     <!-- Carousel -->
     <div class="relative flex-1 h-125 overflow-hidden flex items-center justify-center">
       <!-- Dialog -->
-      <DialogBox :id="DialogId.Banners" class="absolute top-1/2 -translate-y-1/2 left-10 z-50" />
+      <UiDialog :id="DialogId.Banners" class="absolute top-1/2 -translate-y-1/2 left-10 z-50" />
 
       <!-- Sliders -->
       <div
@@ -50,7 +50,7 @@ function next() {
         :data-index="i"
         :data-offset="getOffset(i)"
       >
-        <AppImage
+        <UiImage
           :src="img"
           class="w-full h-75 object-cover transition-all duration-500"
           :class="getOffset(i) === 0 ? 'h-100' : ''"
