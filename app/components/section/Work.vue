@@ -6,7 +6,7 @@ import { DialogId, WORK_CONFIG } from '~/constants'
 <template>
   <div class="relative grid grid-cols-2 gap-5">
     <!-- Dialog -->
-    <LazyUiDialog :id="DialogId.Work" class="top-10 left-5 z-50" />
+    <LazyUiDialog :id="DialogId.Work" />
 
     <!-- Timelapse -->
     <div>

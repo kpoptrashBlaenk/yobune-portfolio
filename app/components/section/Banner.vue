@@ -6,7 +6,7 @@ import { BANNERS, DialogId } from '~/constants'
 <template>
   <div class="relative">
     <!-- Dialog -->
-    <LazyUiDialog :id="DialogId.Banners" class="absolute top-1/2 -translate-y-1/2 left-10 z-50" />
+    <LazyUiDialog :id="DialogId.Banners" />
 
     <!-- Gallery -->
     <UiVerticalGallery :items="BANNERS" />

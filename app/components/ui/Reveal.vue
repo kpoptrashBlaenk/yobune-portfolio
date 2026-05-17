@@ -22,7 +22,7 @@ onMounted(() =>
 <template>
   <section
     ref="sectionRef"
-    class="transition-all duration-1000 ease-out"
+    class="transition-all duration-1000 ease-out relative"
     :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
   >
     <slot></slot>
