@@ -1,7 +1,4 @@
 <script setup lang="ts">
-/* Imports */
-import { breakpointsTailwind } from '@vueuse/core'
-
 /* Props */
 defineProps<{
   items: string[]
@@ -9,8 +6,7 @@ defineProps<{
 }>()
 
 /* Constants */
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const isMobile = breakpoints.smaller('sm')
+const { isMobile } = useDevice()
 
 /* Refs */
 const showMore = ref<boolean>(false)
