@@ -1,26 +1,20 @@
 <script setup lang="ts">
 /* Imports */
 import { DialogId, WORK_CONFIG } from '~/constants'
+
+/* Constants */
+const { isMobile } = useDevice()
 </script>
 
 <template>
-  <div class="relative grid grid-cols-2 gap-5">
+  <div class="relative grid grid-cols-1 sm:grid-cols-2 gap-5">
     <!-- Dialog -->
     <LazyUiDialog :id="DialogId.Work" />
 
     <!-- Timelapse -->
     <div>
       <UiTitle :title="WORK_CONFIG.timelapse.title" secondary />
-      <video
-        :src="WORK_CONFIG.timelapse.video"
-        class="w-full rounded-xl"
-        autoplay
-        controls
-        muted
-        loop
-        playsinline
-        preload="metadata"
-      />
+      <video :src="WORK_CONFIG.timelapse.video" class="w-full rounded-xl" autoplay muted loop />
     </div>
 
     <!-- Quality Comparison -->
@@ -30,11 +24,15 @@ import { DialogId, WORK_CONFIG } from '~/constants'
     </div>
 
     <!-- Work Process -->
-    <div class="col-span-2">
+    <div class="col-span-1 sm:col-span-2">
       <UiTitle :title="WORK_CONFIG.process.title" secondary />
-      <div class="flex gap-5 items-center">
+      <div class="flex flex-col sm:flex-row gap-0 items-center">
         <template v-for="(item, key) in WORK_CONFIG.process.items" :key>
-          <UIcon v-if="key > 0" name="material-symbols:chevron-right" class="shrink-0 size-20" />
+          <UIcon
+            v-if="key > 0"
+            :name="isMobile ? 'material-symbols:expand-more' : 'material-symbols:chevron-right'"
+            class="shrink-0 size-20"
+          />
 
           <div class="relative flex-1 min-w-0">
             <UiImage :src="item.image" class="w-full h-auto" />
