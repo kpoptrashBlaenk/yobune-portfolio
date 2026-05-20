@@ -4,18 +4,18 @@ const sectionRef = useTemplateRef('sectionRef')
 const isVisible = ref(false)
 
 /* Lifecycle Hooks */
-onMounted(() =>
-  useIntersectionObserver(
-    sectionRef,
-    ([entry]) => {
-      if (entry?.isIntersecting) {
-        isVisible.value = true
-      }
-    },
-    {
-      threshold: 0.2
+useIntersectionObserver(
+  sectionRef,
+  ([entry]) => {
+    if (entry?.isIntersecting) {
+      isVisible.value = true
     }
-  )
+
+    stop()
+  },
+  {
+    threshold: 0.2
+  }
 )
 </script>
 

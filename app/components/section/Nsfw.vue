@@ -20,11 +20,11 @@ function scroll(direction: 'left' | 'right') {
     <!-- Dialog -->
     <LazyUiDialog :id="DialogId.Nsfw" />
 
-    <!-- Blur -->
+    <!-- Reveal -->
     <Transition name="fade">
       <div
         v-if="!settingsStore.nsfw"
-        class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 backdrop-blur-2xl rounded-xl"
+        class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3"
       >
         <UIcon name="i-lucide-lock" class="size-10 text-white/80" />
         <p class="text-white/70 font-medium">{{ NSFW_CONFIG.blocked }}</p>
@@ -39,10 +39,16 @@ function scroll(direction: 'left' | 'right') {
 
     <!-- Nsfw Gallery -->
     <div ref="gallery" class="relative flex gap-4 overflow-x-auto h-96 rounded-xl">
-      <UiImage v-for="(image, key) in NSFW_IMAGES" :key :src="image" class="transition" />
+      <UiImage
+        v-for="(image, key) in NSFW_IMAGES"
+        :key
+        :src="image"
+        class="transition"
+        :class="{ 'blur-2xl': !settingsStore.nsfw }"
+      />
 
       <!-- Nav Buttons -->
-      <template v-if="!isMobile">
+      <template v-if="!isMobile && settingsStore.nsfw">
         <UButton
           icon="i-lucide-chevron-left"
           size="xl"
