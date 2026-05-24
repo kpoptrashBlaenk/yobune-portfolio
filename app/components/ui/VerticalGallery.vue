@@ -68,6 +68,9 @@ function getStyle(i: number) {
         v-for="(image, key) in items"
         :key
         :src="image"
+        data-testid="slide"
+        :data-offset="getOffset(key)"
+        :data-index="key"
         class="absolute w-full h-4/5 object-cover transition-all ease-in-out -translate-y-1/2"
         :class="`duration-${TRANSITION_DURATION}`"
         :style="getStyle(key)"
