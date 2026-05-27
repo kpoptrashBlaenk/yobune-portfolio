@@ -7,7 +7,7 @@ const { reset } = useDialogStore()
 </script>
 
 <template>
-  <UHeader :ui="{ title: 'text-secondary' }">
+  <UHeader :ui="{ title: 'text-secondary', body: 'h-full' }">
     <!-- Title -->
     <template #title> {{ TITLES.main }} </template>
 
@@ -20,7 +20,13 @@ const { reset } = useDialogStore()
       <UColorModeButton />
 
       <!-- Cursor Mode -->
-      <UButton variant="ghost" size="md" color="neutral" @click="settingsStore.toggleCursor">
+      <UButton
+        variant="ghost"
+        size="md"
+        color="neutral"
+        class="hidden sm:inline-flex"
+        @click="settingsStore.toggleCursor"
+      >
         {{ settingsStore.cursor ? CURSOR_CONFIG.trueLabel : CURSOR_CONFIG.falseLabel }}
       </UButton>
 
@@ -30,7 +36,31 @@ const { reset } = useDialogStore()
       </UButton>
 
       <!-- NSFW Switch -->
-      <USwitch v-model="settingsStore.nsfw" :label="NSFW_CONFIG.label" />
+      <USwitch
+        v-model="settingsStore.nsfw"
+        :label="NSFW_CONFIG.label"
+        class="hidden sm:inline-flex"
+      />
+    </template>
+
+    <!-- Drawer Content -->
+    <template #body>
+      <div class="flex flex-col h-full">
+        <!-- Links -->
+        <UNavigationMenu :items="SOCIALS" orientation="vertical" class="flex-1" />
+
+        <USeparator />
+
+        <div class="flex justify-evenly items-center mt-2">
+          <!-- Cursor Mode -->
+          <UButton variant="ghost" size="md" color="neutral" @click="settingsStore.toggleCursor">
+            {{ settingsStore.cursor ? CURSOR_CONFIG.trueLabel : CURSOR_CONFIG.falseLabel }}
+          </UButton>
+
+          <!-- NSFW Switch -->
+          <USwitch v-model="settingsStore.nsfw" :label="NSFW_CONFIG.label" />
+        </div>
+      </div>
     </template>
   </UHeader>
 </template>

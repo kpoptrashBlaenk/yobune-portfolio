@@ -6,10 +6,10 @@ import { DialogId, HERO } from '~/constants'
 <template>
   <div class="relative">
     <!-- Hero Image -->
-    <UiImage class="w-full rounded-4xl!" :src="HERO" />
+    <UiImage class="w-full rounded-4xl! min-h-42 object-cover" :src="HERO" />
 
     <!-- Dialogs -->
-    <LazyUiDialog :id="DialogId.Intro" class="top-0 translate-y-1/2 left-5" />
-    <LazyUiDialog :id="DialogId.End" class="top-0 translate-y-1/2 left-5" />
+    <LazyUiDialog :id="DialogId.Intro" />
+    <LazyUiDialog :id="DialogId.End" />
   </div>
 </template>

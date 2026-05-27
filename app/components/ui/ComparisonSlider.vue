@@ -11,13 +11,13 @@ defineProps({
 /* Refs */
 const pos = ref<number>(50)
 const dragging = ref<boolean>(false)
-const container = useTemplateRef('container')
+const containerRef = useTemplateRef('container')
 
 /* Functions */
 function calcPos(clientX: number) {
-  if (!container.value) return 0
+  if (!containerRef.value) return 0
 
-  const rect = container.value?.getBoundingClientRect()
+  const rect = containerRef.value?.getBoundingClientRect()
   return Math.min(Math.max(((clientX - rect.left) / rect.width) * 100, 0), 100)
 }
 

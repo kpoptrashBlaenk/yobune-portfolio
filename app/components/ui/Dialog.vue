@@ -26,8 +26,12 @@ watch(isActive, (active) => {
   <!-- Transition -->
   <Transition name="fade">
     <!-- Card -->
-    <UCard v-if="scene && isActive" :id="scene.id" class="absolute w-1/3 z-50">
-      <div class="flex items-center gap-4 h-24">
+    <UCard
+      v-if="scene && isActive"
+      :id="scene.id"
+      class="absolute top-1/2 -translate-y-1/2 sm:left-10 w-full sm:w-1/2 lg:w-1/3 shadow-xl z-100"
+    >
+      <div class="flex items-center gap-4 h-28 sm:h-24">
         <!-- Image -->
         <img :src="DIALOG_CONFIG.image" draggable="false" class="rounded-xl w-16 h-16" />
         <!-- Text -->

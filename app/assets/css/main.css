@@ -27,6 +27,7 @@
   --color-zinc-950: #0f0608;
 }
 
+/* Cursor */
 body.fancy-cursor,
 body.fancy-cursor *,
 body.fancy-cursor *::after,
@@ -34,6 +35,16 @@ body.fancy-cursor *::before {
   cursor: none !important;
 }
 
+/* Images */
 img {
   user-select: none;
+}
+
+/* Scrollbar */
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }

@@ -2,7 +2,7 @@
   "name": "yobune-portfolio",
   "private": true,
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -23,6 +23,7 @@
     "@nuxt/ui": "^4.7.1",
     "@nuxtjs/color-mode": "4.0.0",
     "@pinia/nuxt": "0.11.3",
+    "@vueuse/core": "^14.3.0",
     "@vueuse/nuxt": "14.3.0",
     "nuxt": "^4.4.2",
     "pinia": "^3.0.4",

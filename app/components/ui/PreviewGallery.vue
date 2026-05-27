@@ -9,18 +9,16 @@ const selectedKey = ref(0)
 </script>
 
 <template>
-  <div class="flex gap-5 items-center h-[46vw]">
-    <!-- Left -->
-    <div class="w-1/2 flex items-center justify-center h-full">
-      <!-- Selected Item -->
+  <div class="flex flex-col sm:flex-row gap-5 items-center sm:h-[46vw]">
+    <!-- Left: Big Preview -->
+    <div class="w-full sm:w-1/2 h-[60vw] sm:h-full flex items-center justify-center">
       <Transition name="fade-scale" mode="out-in">
         <UiImage :key="selectedKey" :src="items[selectedKey]!" class="max-w-full max-h-full" />
       </Transition>
     </div>
 
-    <!-- Right -->
-    <div class="w-1/2 pl-1 pr-4">
-      <!-- Grid -->
+    <!-- Right: Grid -->
+    <div class="w-full sm:w-1/2 sm:pl-1 sm:pr-4">
       <div class="grid grid-cols-3 gap-2">
         <!-- Image -->
         <div
