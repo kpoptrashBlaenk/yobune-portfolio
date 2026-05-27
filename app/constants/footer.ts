@@ -1,12 +1,13 @@
 type FooterConfig = {
-  ownership: string
+  ownership: string[]
   contact: string
+  legal: string
   credit: string
 }
 
 export const FOOTER_CONFIG: FooterConfig = {
-  ownership:
-    '© 2026 YobuneArt. All rights reserved. Artwork may not be reproduced, distributed, modified, or used without explicit permission.',
+  ownership: ['YobuneArt', 'Original artwork and commissions.'],
   contact: 'yobuneart@gmail.com',
+  legal: 'YobuneArt',
   credit: 'https://github.com/kpoptrashBlaenk'
 }
