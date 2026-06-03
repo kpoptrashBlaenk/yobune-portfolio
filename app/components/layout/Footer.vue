@@ -10,20 +10,20 @@ import { FOOTER_CONFIG, SOCIALS } from '~/constants'
       container: 'flex! justify-between',
       bottom:
         'flex flex-col sm:flex-row items-center justify-center gap-2 py-2! text-sm text-muted bg-muted border-t border-default',
-      left: 'flex flex-col items-start order-0',
-      center: 'order-1',
-      right: 'flex flex-col items-end order-2'
+      left: 'flex flex-col items-start justify-start mt-0 order-0',
+      center: 'order-1 mt-0',
+      right: 'flex flex-col items-end justify-start mt-0 order-2'
     }"
   >
     <!-- Ownership -->
     <template #left>
-      <p v-for="(line, i) in FOOTER_CONFIG.ownership" :key="i" :class="{ 'font-bold': i === 0 }">
+      <p v-for="(line, key) in FOOTER_CONFIG.ownership" :key :class="{ 'font-bold': key === 0 }">
         {{ line }}
       </p>
     </template>
 
     <!-- Socials -->
-    <UNavigationMenu :items="SOCIALS" variant="link" class="hidden sm:inline-block" />
+    <UiNavigationMenu :items="SOCIALS" variant="link" class="hidden sm:inline-block" />
 
     <!-- Contact -->
     <template #right>
