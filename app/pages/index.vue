@@ -14,42 +14,42 @@ import { TITLES } from '~/constants'
 
     <!-- Banners -->
     <UiReveal>
-      <LazyUiTitle :title="TITLES.animatedBanners" />
+      <LazyUiTitle :title="TITLES.animatedBanners" variant="primary" />
 
       <LazySectionBanner />
     </UiReveal>
 
     <!-- Animations -->
     <UiReveal>
-      <LazyUiTitle :title="TITLES.ohterAnimations" />
+      <LazyUiTitle :title="TITLES.ohterAnimations" variant="primary" />
 
       <LazySectionAnimation />
     </UiReveal>
 
     <!-- Character Sheets -->
     <UiReveal>
-      <LazyUiTitle :title="TITLES.characterSheets" />
+      <LazyUiTitle :title="TITLES.characterSheets" variant="primary" />
 
       <LazySectionCharacterSheets />
     </UiReveal>
 
     <!-- Other Images -->
     <UiReveal>
-      <LazyUiTitle :title="TITLES.otherImages" />
+      <LazyUiTitle :title="TITLES.otherImages" variant="primary" />
 
       <LazySectionImage />
     </UiReveal>
 
     <!-- Nsfw -->
     <UiReveal>
-      <LazyUiTitle :title="TITLES.nsfwGallery" />
+      <LazyUiTitle :title="TITLES.nsfwGallery" variant="primary" />
 
       <LazySectionNsfw />
     </UiReveal>
 
     <!-- Working Process -->
     <UiReveal>
-      <LazyUiTitle :title="TITLES.work" />
+      <LazyUiTitle :title="TITLES.work" variant="primary" />
 
       <LazySectionWork />
     </UiReveal>

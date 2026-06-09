@@ -13,15 +13,21 @@ import {
 /* Constants */
 const settingsStore = useSettingsStore()
 const { reset } = useDialogStore()
+const showSmClass = 'hidden sm:inline-flex'
+
+/* Computeds */
+const cursorLabel = computed(() =>
+  settingsStore.cursor ? CURSOR_CONFIG.trueLabel : CURSOR_CONFIG.falseLabel
+)
 </script>
 
 <template>
-  <UHeader :ui="{ title: 'text-secondary', body: 'h-full', toggle: 'sm:hidden' }">
+  <UHeader>
     <!-- Title -->
     <template #title> {{ TITLES.main }} </template>
 
     <!-- Links -->
-    <UiNavigationMenu :items="SOCIALS" class="hidden xl:inline-flex" />
+    <UNavigationMenu :items="SOCIALS" class="hidden xl:inline-flex" />
 
     <!-- Right Side -->
     <template #right>
@@ -33,10 +39,10 @@ const { reset } = useDialogStore()
         variant="ghost"
         size="md"
         color="neutral"
-        class="hidden sm:inline-flex"
+        :class="showSmClass"
         @click="settingsStore.toggleCursor"
       >
-        {{ settingsStore.cursor ? CURSOR_CONFIG.trueLabel : CURSOR_CONFIG.falseLabel }}
+        {{ cursorLabel }}
       </UButton>
 
       <!-- Reset Dialog -->
@@ -45,16 +51,12 @@ const { reset } = useDialogStore()
       </UButton>
 
       <!-- NSFW Switch -->
-      <USwitch
-        v-model="settingsStore.nsfw"
-        :label="NSFW_CONFIG.label"
-        class="hidden sm:inline-flex"
-      />
+      <USwitch v-model="settingsStore.nsfw" :label="NSFW_CONFIG.label" :class="showSmClass" />
 
       <!-- Profile -->
       <a :href="PAGES.profile.url" class="ms-1">
         <!-- TODO: make this user initials -->
-        <UiAvatar :text="'P'" class="hidden sm:inline-flex" />
+        <UAvatar :text="'P'" :class="showSmClass" />
       </a>
     </template>
 
@@ -64,7 +66,7 @@ const { reset } = useDialogStore()
         <!-- Top -->
         <div class="flex-1">
           <!-- Links -->
-          <UiNavigationMenu :items="SOCIALS" orientation="vertical" />
+          <UNavigationMenu :items="SOCIALS" orientation="vertical" />
 
           <USeparator class="my-2" />
 
@@ -81,8 +83,14 @@ const { reset } = useDialogStore()
         <!-- Bottom -->
         <div class="flex justify-evenly items-center mt-2">
           <!-- Cursor Mode -->
-          <UButton variant="ghost" size="xl" color="neutral" @click="settingsStore.toggleCursor">
-            {{ settingsStore.cursor ? CURSOR_CONFIG.trueLabel : CURSOR_CONFIG.falseLabel }}
+          <UButton
+            variant="ghost"
+            size="xl"
+            color="neutral"
+            :class="showSmClass"
+            @click="settingsStore.toggleCursor"
+          >
+            {{ cursorLabel }}
           </UButton>
 
           <!-- NSFW Switch -->

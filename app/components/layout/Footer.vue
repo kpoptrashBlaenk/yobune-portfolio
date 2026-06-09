@@ -1,20 +1,10 @@
 <script setup lang="ts">
 /* Imports */
-import { FOOTER_CONFIG, SOCIALS } from '~/constants'
+import { FOOTER_CONFIG, SOCIALS, UI_TEXT } from '~/constants'
 </script>
 
 <template>
-  <UFooter
-    class="text-muted text-sm"
-    :ui="{
-      container: 'flex! justify-between',
-      bottom:
-        'flex flex-col sm:flex-row items-center justify-center gap-2 py-2! text-sm text-muted bg-muted border-t border-default',
-      left: 'flex flex-col items-start justify-start mt-0 order-0',
-      center: 'order-1 mt-0',
-      right: 'flex flex-col items-end justify-start mt-0 order-2'
-    }"
-  >
+  <UFooter>
     <!-- Ownership -->
     <template #left>
       <p v-for="(line, key) in FOOTER_CONFIG.ownership" :key :class="{ 'font-bold': key === 0 }">
@@ -23,11 +13,11 @@ import { FOOTER_CONFIG, SOCIALS } from '~/constants'
     </template>
 
     <!-- Socials -->
-    <UiNavigationMenu :items="SOCIALS" variant="link" class="hidden sm:inline-block" />
+    <UNavigationMenu :items="SOCIALS" variant="link" class="hidden sm:inline-block" />
 
     <!-- Contact -->
     <template #right>
-      <p class="font-bold">Contact</p>
+      <p class="font-bold">{{ UI_TEXT.contact }}</p>
       <p>{{ FOOTER_CONFIG.contact }}</p>
     </template>
 
@@ -39,7 +29,7 @@ import { FOOTER_CONFIG, SOCIALS } from '~/constants'
       <span class="hidden sm:inline-block">•</span>
       <!-- Credit -->
       <span class="flex items-center gap-1">
-        Created by
+        {{ UI_TEXT.created_by }}
         <UButton
           icon="i-simple-icons-github"
           color="neutral"
