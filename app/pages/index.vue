@@ -1,6 +1,11 @@
 <script setup lang="ts">
 /* Imports */
 import { TITLES } from '~~/shared/constants'
+
+/* Page */
+definePageMeta({
+  layout: 'public'
+})
 </script>
 
 <template>

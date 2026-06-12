@@ -22,13 +22,9 @@ onNuxtReady(() => {
 
 <template>
   <UApp>
-    <LayoutHeader />
-
     <NuxtLayout>
       <LayoutCursor />
       <NuxtPage />
     </NuxtLayout>
-
-    <LayoutFooter />
   </UApp>
 </template>
