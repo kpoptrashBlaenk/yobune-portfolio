@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* Imports */
-import { DialogId, HERO } from '~/constants'
+import { DialogId, HERO } from '~~/shared/constants'
 </script>
 
 <template>

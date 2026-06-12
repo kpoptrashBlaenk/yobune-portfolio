@@ -1,5 +1,5 @@
 generator client {
-  provider        = "prisma-client-js"
+  provider        = "prisma-client-js"  
   output          = "../generated/prisma"
   previewFeatures = ["partialIndexes"]
 }
@@ -335,6 +335,7 @@ model sessions {
   @@schema("auth")
 }
 
+/// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
 model sso_domains {
   id              String        @id @db.Uuid
   sso_provider_id String        @db.Uuid
@@ -347,6 +348,7 @@ model sso_domains {
   @@schema("auth")
 }
 
+/// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
 model sso_providers {
   id                String              @id @db.Uuid
   resource_id       String?
@@ -361,6 +363,7 @@ model sso_providers {
   @@schema("auth")
 }
 
+/// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
 model users {
   instance_id                 String?                @db.Uuid
   id                          String                 @id @db.Uuid
@@ -410,7 +413,6 @@ model users {
   order_status_history        order_status_history[]
   orders                      orders[]
   profiles                    profiles?
-  revision_requests           revision_requests[]
 
   @@index([created_at(sort: Desc)], map: "idx_users_created_at_desc")
   @@index([email], map: "idx_users_email")
@@ -591,7 +593,6 @@ model orders {
   services             services               @relation(fields: [service_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   users                users                  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   payments             payments?
-  revision_requests    revision_requests[]
 
   @@index([service_id], map: "idx_orders_service_id")
   @@index([status], map: "idx_orders_status")
@@ -625,21 +626,6 @@ model profiles {
   users      users     @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([username], map: "idx_profiles_username")
-  @@schema("public")
-}
-
-model revision_requests {
-  id           String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  order_id     String          @db.Uuid
-  requested_by String          @db.Uuid
-  status       revision_status @default(open)
-  description  String
-  resolved_at  DateTime?       @db.Timestamptz(6)
-  created_at   DateTime        @default(now()) @db.Timestamptz(6)
-  orders       orders          @relation(fields: [order_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users        users           @relation(fields: [requested_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
-
-  @@index([order_id], map: "idx_revision_requests_order_id")
   @@schema("public")
 }
 
@@ -752,7 +738,6 @@ enum order_status {
   declined
   paid
   in_progress
-  in_revision
   paused
   delivered
   completed
@@ -783,15 +768,6 @@ enum question_type {
   single_choice
   multiple_choice
   attachments
-
-  @@schema("public")
-}
-
-enum revision_status {
-  open
-  in_progress
-  resolved
-  rejected
 
   @@schema("public")
 }

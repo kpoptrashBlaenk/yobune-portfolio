@@ -8,7 +8,7 @@ import {
   SOCIALS,
   TITLES,
   UI_TEXT
-} from '~/constants'
+} from '~~/shared/constants'
 
 /* Constants */
 const settingsStore = useSettingsStore()

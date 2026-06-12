@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* Imports */
-import { TITLES } from '~/constants'
+import { TITLES } from '~~/shared/constants'
 </script>
 
 <template>

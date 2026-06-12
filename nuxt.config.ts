@@ -1,6 +1,3 @@
-import { resolve } from 'path'
-
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -8,7 +5,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
-    '@nuxt/test-utils/module'
+    '@nuxt/test-utils/module',
+    '@nuxtjs/supabase'
   ],
 
   devtools: {
@@ -21,8 +19,14 @@ export default defineNuxtConfig({
     storageKey: 'blaenk-color-mode'
   },
 
-  alias: {
-    '@prisma': resolve('./generated/prisma')
+  runtimeConfig: {
+    databaseUrl: process.env.DATABASE_URL,
+    supabaseServiceKey: process.env.NUXT_SUPABASE_SECRET_KEY,
+    public: {
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL
+    }
   },
 
   routeRules: {
@@ -37,6 +41,27 @@ export default defineNuxtConfig({
         commaDangle: 'never',
         braceStyle: '1tbs'
       }
+    }
+  },
+
+  supabase: {
+    redirect: true,
+    redirectOptions: {
+      login: '/auth/login',
+      callback: '/auth/confirm',
+      exclude: [
+        '/',
+        '/auth/login',
+        '/auth/register',
+        '/auth/forgot-password',
+        '/auth/reset-password'
+      ],
+      saveRedirectToCookie: true
+    },
+    cookieOptions: {
+      maxAge: 60 * 60 * 24, // 24 hours
+      sameSite: 'lax',
+      secure: true
     }
   }
 })

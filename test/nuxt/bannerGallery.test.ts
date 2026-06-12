@@ -1,10 +1,12 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime'
+import { createPinia, setActivePinia } from 'pinia'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import SectionBanner from '~/components/section/Banner.vue'
-import { BANNERS } from '~/constants'
+import { BANNERS } from '~~/shared/constants'
 
 describe('SectionBanner', () => {
   beforeEach(() => {
+    setActivePinia(createPinia())
     vi.useFakeTimers()
   })
 

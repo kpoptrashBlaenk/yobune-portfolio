@@ -1,7 +1,7 @@
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import { describe, expect, it, vi } from 'vitest'
-import { WORK_CONFIG } from '~/constants'
-import ComparisonSlider from './../../app/components/ui/ComparisonSlider.vue'
+import { WORK_CONFIG } from '~~/shared/constants'
+import ComparisonSlider from '~/components/ui/ComparisonSlider.vue'
 
 const PROPS = {
   imageA: WORK_CONFIG.quality.low,
