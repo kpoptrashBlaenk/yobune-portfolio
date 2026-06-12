@@ -1,4 +1,4 @@
-import { DIALOG_CONFIG, DIALOGS, type DialogRecord } from '~/constants'
+import { DIALOG_CONFIG, DIALOGS, type DialogRecord } from '~~/shared/constants'
 
 export const useDialogStore = defineStore('dialog', () => {
   /* Refs */

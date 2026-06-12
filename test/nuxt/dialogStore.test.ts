@@ -1,12 +1,14 @@
 import { useDialogStore } from '#imports'
+import { createPinia, setActivePinia } from 'pinia'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { nextTick } from 'vue'
-import { DIALOG_CONFIG, DIALOGS } from '~/constants'
+import { DIALOGS, DIALOG_CONFIG } from '~~/shared/constants'
 
 describe('useDialogStore', () => {
   let store: ReturnType<typeof useDialogStore>
 
   beforeEach(() => {
+    setActivePinia(createPinia())
     store = useDialogStore()
     store.stop() // always start from dialogIndex -1
     localStorage.clear()

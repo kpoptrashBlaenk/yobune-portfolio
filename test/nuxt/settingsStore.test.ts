@@ -1,11 +1,13 @@
 import { useSettingsStore } from '#imports'
+import { setActivePinia, createPinia } from 'pinia'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { CURSOR_CONFIG, NSFW_CONFIG } from '~/constants'
+import { CURSOR_CONFIG, NSFW_CONFIG } from '~~/shared/constants'
 
 describe('useSettingsStore', () => {
   let store: ReturnType<typeof useSettingsStore>
 
   beforeEach(() => {
+    setActivePinia(createPinia())
     store = useSettingsStore()
     localStorage.clear()
     document.body.classList.remove(CURSOR_CONFIG.className)

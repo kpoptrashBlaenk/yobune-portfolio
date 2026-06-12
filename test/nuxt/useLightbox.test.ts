@@ -1,10 +1,13 @@
 import { useLightbox } from '#imports'
-import { describe, expect, it } from 'vitest'
+import { createPinia, setActivePinia } from 'pinia'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 const IMAGE_A = 'https://example.com/a.webp'
 const IMAGE_B = 'https://example.com/b.webp'
 
 describe('useLightbox', () => {
+  beforeEach(() => setActivePinia(createPinia()))
+
   it('starts closed with an empty image src', () => {
     const { isOpen, image } = useLightbox()
     expect(isOpen.value).toBe(false)
