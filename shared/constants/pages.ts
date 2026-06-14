@@ -9,5 +9,10 @@ export const PAGES = {
   // Profile
   profile: {
     url: '/profile'
+  },
+
+  // Login
+  login: {
+    url: '/auth/login'
   }
 } satisfies Record<string, PageConfig>

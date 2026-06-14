@@ -55,8 +55,9 @@ const cursorLabel = computed(() =>
       <USwitch v-model="settingsStore.nsfw" :label="NSFW_CONFIG.label" :class="showSmClass" />
 
       <!-- Profile -->
-      <a :href="PAGES.profile.url" class="ms-1">
-        <UAvatar :text="profile?.username.at(0)?.toUpperCase() ?? '?'" :class="showSmClass" />
+      <a :href="PAGES.profile.url" :class="showSmClass">
+        <UAvatar v-if="profile" :text="profile?.username.at(0)?.toUpperCase()" />
+        <UButton v-else>{{ UI_TEXT.login }}</UButton>
       </a>
     </template>
 
@@ -73,7 +74,7 @@ const cursorLabel = computed(() =>
           <!-- Profile -->
           <a :href="PAGES.profile.url">
             <UButton variant="ghost" size="md" color="neutral" block class="justify-start">
-              {{ UI_TEXT.profile }}
+              {{ profile ? UI_TEXT.profile : `${UI_TEXT.login} / ${UI_TEXT.register}` }}
             </UButton>
           </a>
         </div>
