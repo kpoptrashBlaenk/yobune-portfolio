@@ -6,14 +6,16 @@ const props = defineProps<{
 }>()
 
 /* Functions */
-function titleCLass() {
+const titleCLass = computed(() => {
   switch (props.variant) {
     case 'primary':
       return 'text-3xl sm:text-4xl mt-20'
     case 'secondary':
       return 'text-lg sm:text-xl mb-2 ml-2'
+    default:
+      return ''
   }
-}
+})
 </script>
 
 <template>
