@@ -2,9 +2,11 @@
   <div>
     <LayoutHeader />
 
-    <UContainer>
-      <slot />
-    </UContainer>
+    <UMain>
+      <UContainer>
+        <slot />
+      </UContainer>
+    </UMain>
 
     <LayoutFooter />
   </div>
