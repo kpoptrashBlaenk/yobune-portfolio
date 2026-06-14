@@ -13,6 +13,7 @@ import {
 /* Constants */
 const settingsStore = useSettingsStore()
 const { reset } = useDialogStore()
+const { profile } = useUserProfile()
 const showSmClass = 'hidden sm:inline-flex'
 
 /* Computeds */
@@ -22,7 +23,7 @@ const cursorLabel = computed(() =>
 </script>
 
 <template>
-  <UHeader>
+  <UHeader :ui="{ content: 'max-w-none max-h-none' }">
     <!-- Title -->
     <template #title> {{ TITLES.main }} </template>
 
@@ -55,8 +56,7 @@ const cursorLabel = computed(() =>
 
       <!-- Profile -->
       <a :href="PAGES.profile.url" class="ms-1">
-        <!-- TODO: make this user initials -->
-        <UAvatar :text="'P'" :class="showSmClass" />
+        <UAvatar :text="profile?.username.at(0)?.toUpperCase() ?? '?'" :class="showSmClass" />
       </a>
     </template>
 
@@ -83,13 +83,7 @@ const cursorLabel = computed(() =>
         <!-- Bottom -->
         <div class="flex justify-evenly items-center mt-2">
           <!-- Cursor Mode -->
-          <UButton
-            variant="ghost"
-            size="xl"
-            color="neutral"
-            :class="showSmClass"
-            @click="settingsStore.toggleCursor"
-          >
+          <UButton variant="ghost" size="xl" color="neutral" @click="settingsStore.toggleCursor">
             {{ cursorLabel }}
           </UButton>
 

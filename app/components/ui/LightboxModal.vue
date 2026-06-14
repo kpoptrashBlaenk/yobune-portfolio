@@ -23,7 +23,12 @@ function onImageLoad(e: Event) {
 </script>
 
 <template>
-  <UModal v-model:open="isOpen" class="w-fit overflow-hidden! max-w-[85vw]" @after:leave="close">
+  <UModal
+    id="lightboxModal"
+    v-model:open="isOpen"
+    class="w-fit overflow-hidden! max-w-[85vw]"
+    @after:leave="close"
+  >
     <template #content>
       <img :src="image" :style="imgStyle" class="block max-w-[85vw]" @load="onImageLoad" />
     </template>
