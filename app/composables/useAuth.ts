@@ -57,16 +57,6 @@ export const useAuth = () => {
     })
   }
 
-  async function resendConfirmation(email: string) {
-    const { data, error } = await supabase.auth.resend({
-      type: 'signup',
-      email
-    })
-    if (error) throw error
-
-    return data
-  }
-
   /* Return */
   return {
     loading,
@@ -75,7 +65,6 @@ export const useAuth = () => {
     logout,
     register,
     forgotPassword,
-    resetPassword,
-    resendConfirmation
+    resetPassword
   }
 }
