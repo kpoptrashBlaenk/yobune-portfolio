@@ -7,6 +7,12 @@ export default defineAppConfig({
       neutral: 'zinc'
     },
 
+    button: {
+      slots: {
+        base: ['disabled:cursor-default']
+      }
+    },
+
     // Header
     header: {
       slots: {
@@ -26,6 +32,21 @@ export default defineAppConfig({
         left: 'flex flex-col items-start justify-start mt-0 order-0',
         center: 'order-1 mt-0',
         right: 'flex flex-col items-end justify-start mt-0 order-2'
+      }
+    },
+
+    // Form Field
+    formField: {
+      slots: {
+        error: 'mt-0 text-error',
+        root: 'mb-3'
+      }
+    },
+
+    // Input
+    input: {
+      slots: {
+        root: 'w-full'
       }
     },
 
@@ -51,7 +72,6 @@ export default defineAppConfig({
     // Modal
     modal: {
       slots: {
-        content: 'w-auto max-w-[85vw] max-h-[85vh] rounded-xl',
         overlay: 'cursor-pointer'
       }
     }

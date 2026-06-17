@@ -1,9 +1,9 @@
-import { ERROR_MESSAGE } from '~~/shared/constants'
+import { ERROR_MESSAGE } from '#shared/constants'
 import type {
   ForgotPasswordPayload,
   RegisterPayload,
   ResetPasswordPayload
-} from '~~/shared/types/user'
+} from '#shared/types/user'
 
 /**
  * Composable handling auth calls.
@@ -12,6 +12,9 @@ export const useAuth = () => {
   /* Constants */
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()
+
+  /* Refs */
+  const loading = ref<boolean>(false)
 
   /* Functions */
   async function login(payload: LoginPayload) {
@@ -23,14 +26,16 @@ export const useAuth = () => {
   async function logout() {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
-    await navigateTo('/auth/login')
+    await navigateTo('/auth')
   }
 
   async function register(payload: RegisterPayload) {
-    return $fetch('/api/auth/register', {
-      method: 'POST',
-      body: payload
-    })
+    return withLoading(loading, () =>
+      $fetch('/api/auth/register', {
+        method: 'POST',
+        body: payload
+      })
+    )
   }
 
   async function forgotPassword(payload: ForgotPasswordPayload) {
@@ -64,6 +69,7 @@ export const useAuth = () => {
 
   /* Return */
   return {
+    loading,
     user,
     login,
     logout,
