@@ -28,6 +28,9 @@ export interface LoginPayload {
 export interface RegisterPayload {
   email: string
   password: string
+}
+
+export interface ConfirmPayload {
   username: string
 }
 

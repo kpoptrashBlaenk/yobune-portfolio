@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js'
 import type { H3Event } from 'h3'
 import { createError, getHeader } from 'h3'
-import { ERROR_MESSAGE } from '~~/shared/constants'
 import type { user_role } from '~~/generated/prisma'
+import { ERROR_MESSAGE } from '~~/shared/constants'
 
 /**
  * Extracts and verifies the Bearer JWT from the Authorization header.
@@ -16,6 +16,8 @@ export async function requireAuth(event: H3Event, allowedRoles?: user_role[]) {
     throw createError({ statusCode: 401, statusMessage: ERROR_MESSAGE.authGuard.token })
   }
 
+  console.log(token)
+
   // verify token with supabase
   const supabase = createClient(config.public.supabaseUrl, config.public.supabaseKey)
   const {
@@ -23,8 +25,15 @@ export async function requireAuth(event: H3Event, allowedRoles?: user_role[]) {
     error
   } = await supabase.auth.getUser(token)
 
+  console.log(error, user)
+
   if (error || !user) {
     throw createError({ statusCode: 401, statusMessage: ERROR_MESSAGE.authGuard.invalid })
+  }
+
+  // if no roles precised, return user without profile
+  if (!allowedRoles) {
+    return { user }
   }
 
   // fetch profile

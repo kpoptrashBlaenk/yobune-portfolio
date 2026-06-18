@@ -5,7 +5,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   if (!requiredRoles || requiredRoles.length === 0) return // no restriction
 
   if (!authStore.isLoggedIn) {
-    return navigateTo('auth/login')
+    return navigateTo('auth')
   }
 
   const userRole = authStore.role

@@ -23,7 +23,7 @@ const cursorLabel = computed(() =>
 </script>
 
 <template>
-  <UHeader :ui="{ content: 'max-w-none max-h-none' }">
+  <UHeader>
     <!-- Title -->
     <template #title> {{ TITLES.main }} </template>
 

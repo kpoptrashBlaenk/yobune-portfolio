@@ -1,9 +1,10 @@
-import { ERROR_MESSAGE } from '~~/shared/constants'
+import { ERROR_MESSAGE } from '#shared/constants'
 import type {
+  ConfirmPayload,
   ForgotPasswordPayload,
   RegisterPayload,
   ResetPasswordPayload
-} from '~~/shared/types/user'
+} from '#shared/types/user'
 
 /**
  * Composable handling auth calls.
@@ -12,6 +13,9 @@ export const useAuth = () => {
   /* Constants */
   const supabase = useSupabaseClient()
   const user = useSupabaseUser()
+
+  /* Refs */
+  const loading = ref<boolean>(false)
 
   /* Functions */
   async function login(payload: LoginPayload) {
@@ -23,14 +27,35 @@ export const useAuth = () => {
   async function logout() {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
-    await navigateTo('/auth/login')
+    await navigateTo('/auth')
   }
 
   async function register(payload: RegisterPayload) {
-    return $fetch('/api/auth/register', {
-      method: 'POST',
-      body: payload
+    return withLoading(loading, () =>
+      $fetch('/api/auth/register', {
+        method: 'POST',
+        body: payload
+      })
+    )
+  }
+
+  async function confirm(payload: ConfirmPayload) {
+    const route = useRoute()
+    const token = route.query['token'] as string
+    if (!token) throw new Error(ERROR_MESSAGE.user.session)
+
+    const { data, error } = await supabase.auth.verifyOtp({
+      token_hash: token,
+      type: 'signup'
     })
+
+    return withLoading(loading, () =>
+      $fetch('/api/auth/confirm', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+        body: payload
+      })
+    )
   }
 
   async function forgotPassword(payload: ForgotPasswordPayload) {
@@ -52,24 +77,15 @@ export const useAuth = () => {
     })
   }
 
-  async function resendConfirmation(email: string) {
-    const { data, error } = await supabase.auth.resend({
-      type: 'signup',
-      email
-    })
-    if (error) throw error
-
-    return data
-  }
-
   /* Return */
   return {
+    loading,
     user,
     login,
     logout,
     register,
+    confirm,
     forgotPassword,
-    resetPassword,
-    resendConfirmation
+    resetPassword
   }
 }
