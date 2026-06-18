@@ -27,7 +27,7 @@ async function onSubmit(event: FormSubmitEvent<RegisterSchema>) {
 
 <template>
   <!-- Register Form -->
-  <UForm :schema="registerSchema" :state="state" @submit="onSubmit">
+  <UForm :schema="registerSchema" :state @submit="onSubmit">
     <!-- Email -->
     <UFormField :label="UI_TEXT.email" name="email">
       <UInput v-model="state.email" />

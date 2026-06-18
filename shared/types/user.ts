@@ -30,6 +30,10 @@ export interface RegisterPayload {
   password: string
 }
 
+export interface ConfirmPayload {
+  username: string
+}
+
 export interface ForgotPasswordPayload {
   email: string
 }

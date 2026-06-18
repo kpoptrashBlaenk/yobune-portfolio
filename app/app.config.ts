@@ -13,6 +13,12 @@ export default defineAppConfig({
       }
     },
 
+    card: {
+      slots: {
+        title: 'text-default'
+      }
+    },
+
     // Header
     header: {
       slots: {

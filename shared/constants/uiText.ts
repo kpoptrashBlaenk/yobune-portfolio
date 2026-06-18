@@ -1,4 +1,5 @@
 export const UI_TEXT = {
+  confirm: 'Confirm',
   contact: 'Contact',
   created_by: 'Created by',
   email: 'Email',
@@ -10,5 +11,6 @@ export const UI_TEXT = {
   showLess: 'Show Less',
   showMore: 'Show More',
   success: 'Success',
+  title_confirm: 'Confirm you profile',
   username: 'Username'
 }
